@@ -70,6 +70,7 @@ namespace CIAcademic.DatabaseLayer
             {
                 transaction.Rollback();
             }
+            con.CloseConnection();
             return Respuesta;
         }
         public int ppInsertStudent(int ID_Person)
@@ -94,10 +95,12 @@ namespace CIAcademic.DatabaseLayer
             {
                 transaction.Rollback();
             }
+            con.CloseConnection();
             return Respuesta;
         }
         public int ppDeleteStudent(int ID_Person)
         {
+            con.OpenConnection();
             int Respuesta = 0;
             sqlCommand = new SqlCommand();
             sqlCommand.CommandText = "ppDeleteStudent";
@@ -114,6 +117,55 @@ namespace CIAcademic.DatabaseLayer
             {
                 filestream.Error($"Oh oh ha ocurrido un error al tratar de eliminar a un estudiante con ID {ID_Person}. Mas Detalle del error: {er}");
             }
+            con.CloseConnection();
+            return Respuesta;
+        }
+        public int ppUpdatePerson(int ID_Person, string Name, string LastName, string Email, string Password)
+        {
+            con.OpenConnection();
+            int Respuesta = 0;
+            sqlCommand = new SqlCommand();
+            sqlCommand.CommandText = "ppUpdatePerson";
+            sqlCommand.Parameters.AddWithValue("@ID_Person", ID_Person);
+            sqlCommand.Parameters.AddWithValue("@Name_Person", Name);
+            sqlCommand.Parameters.AddWithValue("@Last_Person", LastName);
+            sqlCommand.Parameters.AddWithValue("@Email_Person", Email);
+            sqlCommand.Parameters.AddWithValue("@Password_Person", Password);
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Connection = con.sqlConnection;
+            try
+            {
+                Respuesta = sqlCommand.ExecuteNonQuery();
+                filestream.Info($"Se ha Actualizado un estudiante con ID {ID_Person}");
+
+            }
+            catch (Exception er)
+            {
+                filestream.Error($"Oh oh ha ocurrido un error al tratar de eliminar a un estudiante con ID {ID_Person}. Mas Detalle del error: {er}");
+            }
+            return Respuesta;
+            con.CloseConnection();
+        }
+        public int ppDeleteTeacher(int ID_Person)
+        {
+            con.OpenConnection();
+            int Respuesta = 0;
+            sqlCommand = new SqlCommand();
+            sqlCommand.CommandText = "ppDeleteTeacher";
+            sqlCommand.Parameters.AddWithValue("@ID_Teacher", ID_Person);
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Connection = con.sqlConnection;
+            try
+            {
+                Respuesta = sqlCommand.ExecuteNonQuery();
+                filestream.Info($"Se ha Eliminado un profesor con ID {ID_Person}");
+
+            }
+            catch (Exception er)
+            {
+                filestream.Error($"Oh oh ha ocurrido un error al tratar de eliminar a un profesor con ID {ID_Person}. Mas Detalle del error: {er}");
+            }
+            con.CloseConnection();
             return Respuesta;
         }
     }
