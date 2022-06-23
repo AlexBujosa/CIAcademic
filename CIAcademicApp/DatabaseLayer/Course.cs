@@ -1,12 +1,7 @@
-﻿using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
+﻿using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Data;
 
-namespace CIAcademic.DatabaseLayer
+namespace CIAcademicApp.DatabaseLayer
 {
     public class Course
     {

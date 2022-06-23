@@ -1,12 +1,7 @@
-﻿using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
+﻿using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Data;
-using System.Threading.Tasks;
 
-namespace CIAcademic.DatabaseLayer
+namespace CIAcademicApp.DatabaseLayer
 {
     public class Qualify
     {
@@ -36,7 +31,7 @@ namespace CIAcademic.DatabaseLayer
                 Respuesta = sqlCommand.ExecuteNonQuery();
                 filestream.Info($"Hora:  {DateTime.Now}. Se ha calificado a ID: {ID_Student} y de Codigo de asignatura: {ID_Course}");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 filestream.Error($"Hora {DateTime.Now}. Error algo ha ocurrido tratando de calificar a ID: {ID_Student} y de Codigo de asignatura: {ID_Course}. Mas detalle del error: {ex}");
             }
@@ -64,7 +59,7 @@ namespace CIAcademic.DatabaseLayer
             con.CloseConnection();
             return Respuesta;
         }
-        public int ppUpdateQualification(int Student_Course, int ID_Student,int Qualification,int ID_Equivalent)
+        public int ppUpdateQualification(int Student_Course, int ID_Student, int Qualification, int ID_Equivalent)
         {
             con.OpenConnection();
             int Respuesta = 0;

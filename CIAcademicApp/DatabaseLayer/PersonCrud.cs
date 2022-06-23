@@ -1,13 +1,7 @@
-﻿using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace CIAcademic.DatabaseLayer
+namespace CIAcademicApp.DatabaseLayer
 {
     public class PersonCrud
     {
@@ -41,14 +35,14 @@ namespace CIAcademic.DatabaseLayer
             try
             {
                 da.Fill(dataSet);
-                
+
                 ID_Person = int.Parse(dataSet.Tables[0].Rows[0][0].ToString());
             }
             catch
             {
                 transaction.Rollback();
             }
-            
+
             return ID_Person;
         }
         public int ppInsertTeacher(int ID_Person)
@@ -113,7 +107,7 @@ namespace CIAcademic.DatabaseLayer
                 filestream.Info($"Se ha Eliminado un estudiante con ID {ID_Person}");
 
             }
-            catch(Exception er)
+            catch (Exception er)
             {
                 filestream.Error($"Oh oh ha ocurrido un error al tratar de eliminar a un estudiante con ID {ID_Person}. Mas Detalle del error: {er}");
             }

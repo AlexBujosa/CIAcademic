@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Text;
-using System.IO;
-namespace CIAcademic.DatabaseLayer
+﻿using System.Text;
+
+namespace CIAcademicApp.DatabaseLayer
 {
     public class filestream
     {
@@ -12,7 +8,7 @@ namespace CIAcademic.DatabaseLayer
         public filestream()
         {
             path = Directory.GetCurrentDirectory();
-            
+
         }
         public void Error(string value)
         {
@@ -27,7 +23,7 @@ namespace CIAcademic.DatabaseLayer
         {
             using (FileStream fs = File.Open(path, FileMode.Open, FileAccess.Write, FileShare.None))
             {
-                Byte[] info = new UTF8Encoding(true).GetBytes("Time: " + DateTime.Now +". Info: " +value);
+                Byte[] info = new UTF8Encoding(true).GetBytes("Time: " + DateTime.Now + ". Info: " + value);
                 // Add some information to the file.  
                 fs.Write(info, 0, info.Length);
             }

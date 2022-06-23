@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace CIAcademic.DatabaseLayer.Model
+﻿namespace CIAcademicApp.DatabaseLayer.Model
 {
     public class Student_Course
     {
