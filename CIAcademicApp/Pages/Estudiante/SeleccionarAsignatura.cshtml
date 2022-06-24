@@ -13,21 +13,12 @@
         </button>
         <div class="collapse navbar-collapse" id="navcol-2">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item dropdown">
-                    <a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown">Perfil</a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item green-background" href="UserView"><i class="far fa-user-circle icon-margin"></i>Perfil</a>
-                        <a class="dropdown-item" href="SeleccionarAsignatura"><i class="fas fa-tasks icon-margin"></i>Seleccionar Asignaturas</a>
-                        <a class="dropdown-item" href="HistorialAcademico"><i class="far fa-file-alt icon-margin"></i>Historial Academico</a>
-                        <a class="dropdown-item" href="RetirarAsignatura"><i class="far fa-user-circle icon-margin"></i>Retirar Asignatura</a>
-                        <a class="dropdown-item" href="LoginCIAcademic"><i class="icon ion-android-exit icon-margin"></i>Cerrar Sesion</a>
-                    </div>
+                <partial name="Shared/_DropBoxPartial"/>
+                <li class="nav-item">
+                    <a class="nav-link" href="Calificaciones">Calificaciones</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="Calificaciones.html">Calificaciones</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="AsignaturasEstudiante.html">Asignaturas</a>
+                    <a class="nav-link" href="AsignaturasEstudiante">Asignaturas</a>
                 </li>
             </ul>
         </div>
