@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace CIAcademicApp.Pages
+namespace CIAcademicApp.Pages.Estudiante
 {
-    public class IndexModel : PageModel
+    public class CalificacionesModel : PageModel
     {
         public void OnGet()
         {
