@@ -1,0 +1,31 @@
+.margin-heading {
+  margin-top: 7rem;
+  padding: 100px;
+}
+
+.background-div {
+  padding: 30px;
+  border-radius: 2rem;
+  margin-top: 3rem;
+}
+
+.margin-calification {
+  margin-left: 2rem;
+}
+
+.calification-color {
+  color: #FF9F1C;
+}
+
+.padding-container {
+  padding: 40px;
+  border-radius: 30px;
+}
+
+.profile h1 {
+  font-weight: 800;
+}
+
+p {
+}
+
