@@ -2,4 +2,57 @@
 @model CIAcademicApp.Pages.IndexModel
 @{
 }
-<h1> Hello World</h1>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Login Model</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,900&amp;display=swap">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/Animated-Typing-With-Blinking.css">
+    <link rel="stylesheet" href="assets/css/button_link.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="assets/css/ListMaterias-1.css">
+    <link rel="stylesheet" href="assets/css/ListMaterias.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Basic.css">
+    <link rel="stylesheet" href="assets/css/Search-Input-Responsive-with-Icon.css">
+</head>
+
+<body class="text-start d-xl-flex align-items-center align-self-center align-items-xl-center">
+    <div class="container" style="margin-bottom: 2rem;">
+        <div class="row">
+            <div class="col offset-xl-2"><img src="assets/img/CIAcademic.png"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-xl-6 offset-md-0 offset-lg-0 d-lg-flex d-xl-flex d-xxl-flex justify-content-lg-center align-items-xl-center align-items-xxl-center"><img class="img-fluid" src="assets/img/Learning-cuate%201%20(1).png" style="width: 40rem;"></div>
+            <div class="col" data-bss-disabled-mobile="true" data-aos="fade-left" data-aos-duration="950">
+                <section class="position-relative py-4 py-xl-5">
+                    <div class="container font-monospace text-nowrap text-truncate text-break d-flex flex-column justify-content-center align-items-center">
+                        <div class="row mb-5">
+                            <div class="col d-sm-flex d-md-flex justify-content-center align-items-center align-content-center justify-content-sm-center justify-content-md-center">
+                                <h2 class="d-flex d-md-flex justify-content-center" style="font-family: Nunito, sans-serif;font-weight: bold;font-size: 50px;">Bienvenido!</h2>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-12 offset-0 d-flex d-md-flex flex-column align-items-center align-items-sm-center justify-content-md-center align-items-md-center" style="height: 25rem;color: rgb(33,37,41);border-style: none;border-color: rgba(33,37,41,0);width: 100%;margin-top: -65px;">
+                                <form class="text-center d-flex d-md-flex flex-column justify-content-md-center" method="post" style="width: 20rem;">
+                                    <div class="font-monospace text-nowrap text-truncate"><i class="far fa-user" style="transform: perspective(0px) translate(-198px) translateX(70px) translateY(58px) scale(1.79);"></i><input class="border rounded-0 form-control d-flex" type="text" name="" placeholder="ID" style="font-size: 16px;font-family: Nunito, sans-serif;padding: 11px 11px;padding-left: 53px;margin-top: 21px;width: 100%;" required minlength="1" maxlength="7" /></div>
+                                    <div><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-lock d-flex d-xl-flex justify-content-start justify-content-xl-start" style="transform: translateX(24px) translateY(63px) scale(1.85);">
+                                            <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"></path>
+                                        </svg><input class="border rounded-0 form-control" type="password" name="password" placeholder="Contraseña" required="" style="font-size: 16px;border-width: 0px;margin-top: 33px;padding: 11px 12px;font-family: Nunito, sans-serif;padding-left: 52px;"></div>
+                                    <div class="mb-3"><button class="btn btn-primary border rounded-0 shadow d-block w-100" type="submit" style="color: var(--bs-gray-200);background: #ff9f1c;font-weight: bold;font-family: Nunito, sans-serif;font-size: 16px;margin-top: 39px;height: auto;padding: 11px 12px;">Ingresar</button></div>
+                                    <div class="d-flex flex-column" style="margin: 0px;"><a class="d-flex justify-content-center" href="VistaUsuario.html">Iniciar sin cuenta - Estudiante</a><a class="d-flex" href="VistaProfesor.html">Iniciar sin cuenta - Profesor</a></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+</body>

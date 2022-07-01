@@ -1,0 +1,77 @@
+﻿@page
+@model CIAcademicApp.Pages.Profesor.EditarCalificacionEstudianteModel
+@{
+}
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Login Model</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,900&amp;display=swap">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/Animated-Typing-With-Blinking.css">
+    <link rel="stylesheet" href="assets/css/button_link.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="assets/css/ListMaterias-1.css">
+    <link rel="stylesheet" href="assets/css/ListMaterias.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Basic.css">
+    <link rel="stylesheet" href="assets/css/Search-Input-Responsive-with-Icon.css">
+</head>
+
+<body style="font-family: Nunito, sans-serif;">
+    <nav class="navbar navbar-light navbar-expand-md fixed-top py-3" style="font-family: Nunito, sans-serif;font-weight: bold;background: #ffffff;">
+        <div class="container"><a class="navbar-brand d-flex align-items-center" href="VistaProfesor.html">
+    <img src="assets/img/CIAcademic.png" alt="">
+</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link green-background course-pointer" aria-expanded="false" data-bs-toggle="dropdown" href="#">Perfil</a>
+                        <div class="dropdown-menu"><a class="dropdown-item" href="Index.html"><i class="far fa-user-circle icon-margin"></i>Cerrar Sesion</a></div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link active" href="AsignaturasProfesor.html">Usuarios</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="profile">
+        <h1 class="d-flex justify-content-center justify-content-sm-center justify-content-md-center justify-content-lg-start margin-heading" data-aos="fade-down" style="padding: 100px;padding-left: 100px;padding-bottom: 39px;margin-top: 52px;">Editar Calificaciones</h1>
+        <div class="container d-flex flex-column padding-container" style="background: #CBF3F0;padding-bottom: 41px;">
+            <div style="border-radius: 21px;background: var(--bs-body-bg);padding: 2px;border-color: rgb(255,255,255);">
+                <h1 style="text-align: center;font-size: 38px;margin: 0px;margin-top: 29px;">Nombre de la Asignatura</h1>
+                <div class="flex-column flex-grow-1 align-items-center justify-content-lg-center align-items-lg-center background-div" style="background: rgba(255,255,255,0);font-family: Nunito, sans-serif;font-size: 27px;font-weight: bold;padding-bottom: 17px;border-radius: 0px;">
+                    <div class="d-flex flex-column align-items-center align-content-center flex-sm-row justify-content-md-center align-items-md-center flex-lg-column justify-content-lg-center align-items-lg-center" style="width: 100%;">
+                        <div class="d-flex flex-grow-1 justify-content-center justify-content-lg-center align-items-lg-center" style="width: 100%;height: 112px;">
+                            <p class="d-flex justify-content-md-center align-items-md-center" style="font-family: Nunito, sans-serif;text-align: center;">Steven - 1101817</p>
+                        </div>
+                        <div class="d-flex d-lg-flex flex-column align-items-center flex-lg-column align-items-lg-center" style="width: 100%;margin-left: 0px;">
+                            <div class="d-flex d-lg-flex flex-column flex-grow-1 align-items-center flex-lg-column justify-content-lg-start align-items-lg-center" style="width: 100%;">
+                                <p class="text-center justify-content-center justify-content-lg-start" style="margin-left: 0px;width: 100%;">Editar Calificación</p><input class="flex-grow-0 flex-shrink-1 flex-fill justify-content-lg-start centered-1" type="text" style="background: rgba(250,169,11,0.12);border-radius: 12px;margin-bottom: 15px;width: 92.5px;height: 62.5px;font-size: 42px;text-align: center;font-weight: bold;" minlength="1" maxlength="3">
+                            </div>
+                            <div><button class="btn btn-primary d-flex justify-content-center justify-content-lg-end" type="button" style="background: #FF9F1C;font-weight: bold;color: black;">Guardar</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-light navbar-expand-md fixed-top py-3" style="font-family: Nunito, sans-serif;font-weight: bold;background: #ffffff;">
+            <div class="container"><a class="navbar-brand d-flex align-items-center" href="VistaProfesor.html">
+    <img src="assets/img/CIAcademic.png" alt="">
+</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navcol-2">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item dropdown"><a class="dropdown-toggle nav-link green-background course-pointer" aria-expanded="false" data-bs-toggle="dropdown" href="#">Perfil</a>
+                            <div class="dropdown-menu"><a class="dropdown-item" href="Index.html"><i class="far fa-user-circle icon-margin"></i>Cerrar Sesion</a></div>
+                        </li>
+                        <li class="nav-item"><a class="nav-link active" href="AsignaturasProfesor.html">Usuarios</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+</body>
