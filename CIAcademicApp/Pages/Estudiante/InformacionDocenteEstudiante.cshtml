@@ -1,0 +1,65 @@
+﻿@page
+@model CIAcademicApp.Pages.Estudiante.InformacionDocenteEstudianteModel
+@{
+}
+<body style="font-family: Nunito, sans-serif;">
+    <nav class="navbar navbar-light navbar-expand-md fixed-top py-3" style="font-family: Nunito, sans-serif;font-weight: bold;background: #ffffff;">
+        <div class="container"><a class="navbar-brand d-flex align-items-center" href="VistaUsuario">
+    <img src="~/assets/img/CIAcademic.png" alt="">
+</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-2">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link course-pointer" aria-expanded="false" data-bs-toggle="dropdown">Perfil</a>
+                        <div class="dropdown-menu"><a class="dropdown-item" href="VistaUsuario"><i class="far fa-user-circle icon-margin"></i>Perfil</a><a class="dropdown-item" href="SeleccionarAsignatura"><i class="fas fa-tasks icon-margin"></i>Seleccionar Asignaturas</a><a class="dropdown-item" href="HistorialAcademico"><i class="far fa-file-alt icon-margin"></i>Historial Academico</a><a class="dropdown-item" href="Retirar"><i class="far fa-user-circle icon-margin"></i>Retirar Asignatura</a><a class="dropdown-item" href="/"><i class="icon ion-android-exit icon-margin"></i>Cerrar Sesion</a></div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="Calificaciones">Calificaciones</a></li>
+                    <li class="nav-item"><a class="nav-link active green-background" href="AsignaturasEstudiante">Asignaturas</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="d-md-flex justify-content-md-center" style="font-weight: bold;">
+        <h1 class="text-center d-md-flex justify-content-md-start profile" data-aos="fade-right" data-aos-duration="1700" style="font-family: Nunito, sans-serif;padding-top: 10rem;padding-left: 0rem;padding-bottom: 4.3rem;font-weight: bold;">Nombre Docente</h1>
+    </div>
+    <section class="d-flex flex-column flex-grow-1 align-items-center align-content-end align-self-center flex-md-row profile" style="height: auto;width: 100%;padding: 49px;">
+        <div class="container" style="height: auto;width: 100%;">
+            <div class="d-flex">
+                <div class="border-secondary d-inline-flex flex-column flex-grow-1 justify-content-center align-items-sm-center justify-content-xl-center align-items-xl-center"><img class="rounded-circle img-fluid flex-grow-0 flex-shrink-1 justify-content-xl-center align-items-xl-center" src="~/assets/img/Ellipse 1 (1).png">
+                    <div>
+                        <div class="text-center id-div">
+                            <p class="text-center" style="font-family: Nunito, sans-serif;font-weight: bold;font-size: 20px;">Docente</p>
+                        </div>
+                        <div class="text-center id-div">
+                            <p class="text-center minus-margin" style="font-family: Nunito, sans-serif;font-weight: bold;font-size: 20px;">docente@ciacademic.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container d-flex justify-content-center" style="background: #CBF3F0;padding: 32px;border-radius: 26px;">
+            <div class="d-flex flex-column flex-grow-1 flex-shrink-1 flex-fill align-items-center align-content-center background-information" style="height: auto;margin: 0px;padding: 103px;padding-top: 0px;width: 100%;padding-bottom: 12px;">
+                <div class="text-center">
+                    <h1 class="d-lg-flex justify-content-lg-center" style="font-size: 4vw;width: 100%;margin-top: 30px;">Asignaturas:</h1>
+                </div>
+                <div class="indice-general">
+                    <p class="fs-4 text-center d-inline-block prAsignarutra" style="font-weight: bold;font-family: Nunito, sans-serif;font-size: 16px;color: #FF9F1C;">Aseguramiento de la Calidad</p>
+                </div>
+                <div class="fs-4 indice-general">
+                    <p class="text-center d-inline-block paragraphColor" style="color: #FF9F1C;font-family: Nunito, sans-serif;font-weight: bold;">Pruebas de Software</p>
+                </div>
+                <div class="indice-general">
+                    <p class="fs-4 text-center d-inline-block" style="color: #FF9F1C;font-family: Nunito, sans-serif;font-weight: bold;">Mantenimiento de Software</p>
+                </div>
+                <div class="indice-general">
+                    <p class="fs-4 text-center d-inline-block" style="color: #FF9F1C;font-family: Nunito, sans-serif;font-weight: bold;">Diseño de Software</p>
+                </div>
+                <div class="indice-general">
+                    <p class="fs-4 text-center" style="color: #FF9F1C;font-family: Nunito, sans-serif;font-weight: bold;">Programacion</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/js/bs-init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+</body>

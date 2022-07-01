@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CIAcademicApp.Pages.Estudiante
 {
-    public class UserViewModel : PageModel
+    public class VistaUsuarioModel : PageModel
     {
         public void OnGet()
         {
