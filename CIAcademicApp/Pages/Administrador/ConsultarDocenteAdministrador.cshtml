@@ -3,15 +3,15 @@
 @{
 }
 
-<body style="font-family: Nunito, sans-serif;">
+<body>
     <nav class="navbar navbar-light navbar-expand-md fixed-top py-3" style="font-family: Nunito, sans-serif;font-weight: bold;background: #ffffff;">
-        <div class="container"><a class="navbar-brand d-flex align-items-center" href="VistaProfesor.html">
-    <img src="assets/img/CIAcademic.png" alt="">
+        <div class="container"><a class="navbar-brand d-flex align-items-center" href="VistaAdministrador">
+    <img src="~/assets/img/CIAcademic.png" alt="">
 </a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-2">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link green-background course-pointer" aria-expanded="false" data-bs-toggle="dropdown" href="#">Perfil</a>
-                        <div class="dropdown-menu"><a class="dropdown-item" href="Index.html"><i class="far fa-user-circle icon-margin"></i>Cerrar Sesion</a></div>
+                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link green-background course-pointer" aria-expanded="false" data-bs-toggle="dropdown" href="VistaAdministrador">Perfil</a>
+                        <div class="dropdown-menu"><a class="dropdown-item" href="/"><i class="far fa-user-circle icon-margin"></i>Cerrar Sesion</a></div>
                     </li>
                     <li class="nav-item"><a class="nav-link active" href="AsignaturasProfesor.html">Usuarios</a></li>
                 </ul>
@@ -19,41 +19,24 @@
         </div>
     </nav>
     <section class="profile">
-        <div>
-            <h1 class="d-flex justify-content-center profile" data-aos="fade-right" data-aos-duration="1700" style="font-family: Nunito, sans-serif;padding-top: 10rem;padding-left: 0rem;padding-bottom: 1.3rem;">Docentes</h1>
-        </div>
-        <div class="container">
-            <div class="row d-flex d-md-flex flex-column flex-lg-row">
-                <div class="col-md-6 col-lg-6 col-xl-3 offset-md-3 offset-lg-0 offset-xl-2">
-                    <div class="d-flex justify-content-lg-center">
-                        <div class="border-secondary d-flex flex-column flex-grow-1 justify-content-center align-items-sm-center flex-lg-row justify-content-xl-center align-items-xl-center"><img class="rounded-circle img-fluid flex-grow-0 flex-shrink-1 justify-content-xl-center align-items-xl-center" src="assets/img/Ellipse%201%20(3).png"></div>
-                    </div>
-                </div>
-                <div class="col d-lg-flex justify-content-lg-center align-items-lg-center">
-                    <div class="text-center align-content-end id-div">
-                        <p class="text-center" style="font-family: Nunito, sans-serif;font-weight: bold;font-size: 30px;">Ana Cordero</p>
-                        <p class="text-center" style="font-family: Nunito, sans-serif;font-size: 30px;">1101817</p>
-                        <p class="text-center" style="font-family: Nunito, sans-serif;font-size: 30px;">anac@ciacademic.com</p>
-                        <p class="text-center" style="font-family: Nunito, sans-serif;font-size: 30px;margin-bottom: 33px;">Contraseña: laurap123</p>
-                    </div>
-                </div>
-            </div>
+        <div class="d-flex" style="width: 100%;">
+            <h1 data-aos="fade-right" data-aos-duration="1700" class="profile" style="font-family: Nunito, sans-serif;padding-top: 10rem;padding-left: 5rem;padding-bottom: 1.3rem;">Hola Administrador!</h1>
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-md-8 col-lg-6 col-xl-7 offset-md-2 offset-lg-2 offset-xl-0 flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" data-aos="fade-left" data-aos-duration="1850" style="background: #CBF3F0;border-radius: 26px;padding-bottom: 0px;margin: 0px;margin-top: 46px;">
-                    <div></div>
-                    <div class="indice-general"></div>
-                    <div class="d-flex d-sm-flex flex-column flex-grow-1 align-items-center justify-content-sm-center align-items-sm-center">
-                        <div style="width: 60%;">
-                            <p class="text-center credits p-3" style="background: #39C4B6;font-family: Nunito, sans-serif;font-weight: bold;color: white;width: 100%;margin-top: 22px;">30 Estudiantes</p>
-                            <p class="text-center credits p-3" style="background: #39C4B6;font-family: Nunito, sans-serif;font-weight: bold;color: white;width: 100%;">26 Creditos</p>
-                            <p class="text-center credits p-3" style="background: #39C4B6;font-family: Nunito, sans-serif;font-weight: bold;color: white;width: 100%;">7 Asignaturas</p>
-                            <p class="text-center credits p-3" style="background: #39C4B6;font-family: Nunito, sans-serif;font-weight: bold;color: white;width: 100%;">19 Créditos&nbsp;</p>
+                <div class="col-md-6 col-lg-5 offset-md-3 offset-lg-3">
+                    <div class="d-sm-flex flex-column justify-content-center align-items-center justify-content-sm-start align-items-sm-center">
+                        <div class="border-secondary d-inline-flex flex-column flex-grow-1 justify-content-center align-items-sm-center justify-content-xl-center align-items-xl-center"><img class="rounded-circle img-fluid d-flex d-sm-flex flex-column flex-grow-0 flex-shrink-1 justify-content-sm-center align-items-sm-center justify-content-xl-center align-items-xl-center" src="assets/img/Ellipse%201%20(1).png"></div>
+                        <div>
+                            <div class="text-center id-div">
+                                <p class="text-center" style="font-family: Nunito, sans-serif;font-weight: bold;font-size: 28px;">110374</p>
+                            </div>
+                            <div class="text-center id-div">
+                                <p class="text-center minus-margin" style="font-family: Nunito, sans-serif;font-weight: bold;font-size: 20px;">Admin@ciacademic.com</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4 col-xl-3 offset-md-3 offset-lg-1 offset-xl-2 d-flex flex-column justify-content-lg-center" style="margin-top: 27px;"><button class="btn btn-primary btn-project" type="button" style="background: #FF9F1C;font-family: Nunito, sans-serif;color: rgb(255,255,255);font-size: 27px;border-radius: 14px;padding: 8px 40px;padding-left: 40px;margin-left: 0px;margin-bottom: 57px;margin-top: 0px;width: 100%;">Editar</button><button class="btn btn-primary btn-project" type="button" style="background: #FF9F1C;font-family: Nunito, sans-serif;padding: 8px 40px;color: rgb(255,255,255);font-size: 27px;margin-left: 0px;height: auto;border-radius: 14px;margin-bottom: 29px;width: 100%;">Eliminar</button></div>
             </div>
         </div>
     </section>
