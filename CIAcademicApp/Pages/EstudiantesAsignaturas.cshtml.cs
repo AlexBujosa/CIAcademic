@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace CIAcademicApp.Pages.Estudiante
+namespace CIAcademicApp.Pages.Shared
 {
-    public class InformacionDocenteModel : PageModel
+    public class EstudiantesAsignaturasModel : PageModel
     {
         public void OnGet()
         {

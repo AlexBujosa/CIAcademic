@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace CIAcademicApp.Pages.Estudiante
+namespace CIAcademicApp.Pages
 {
-    public class RetirarAsignaturaModel : PageModel
+    public class CalificarEstudianteModel : PageModel
     {
         public void OnGet()
         {

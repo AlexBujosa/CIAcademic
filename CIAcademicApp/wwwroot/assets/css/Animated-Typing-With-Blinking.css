@@ -89,11 +89,6 @@
   border-radius: 10px;
 }
 
-.margin-heading {
-  margin-top: 7rem;
-  padding: 100px;
-}
-
 .background-div {
   padding: 30px;
 }
@@ -110,11 +105,6 @@
   font-size: 2.7rem;
 }
 
-.padding-container {
-  padding: 40px;
-  border-radius: 30px;
-}
-
 .section-border {
   border-radius: 20px;
 }
@@ -125,5 +115,21 @@
 
 .section-border {
   border-radius: 30px;
+}
+
+.Heading-Behind {
+  padding-left: 100px;
+}
+
+.NewHover {
+  background-color: red;
+}
+
+.over:hover {
+  background-color: #febe70;
+}
+
+.green-background.course-pointer {
+  cursor: pointer;
 }
 

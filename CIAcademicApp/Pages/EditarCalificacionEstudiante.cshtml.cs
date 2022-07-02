@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace CIAcademicApp.Pages.Estudiante
+namespace CIAcademicApp.Pages
 {
-    public class UserViewModel : PageModel
+    public class EditarCalificacionEstudianteModel : PageModel
     {
         public void OnGet()
         {
