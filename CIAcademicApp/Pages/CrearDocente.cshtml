@@ -1,0 +1,104 @@
+﻿@page
+@model CIAcademicApp.Pages.CrearDocenteModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Login Model</title>
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css?h=b4baa272cdf7e6fc929207f0eba1527f">
+    <link rel="stylesheet" href="/assets/css/Lato.css?h=dacfec06adcdcea49cc3cdead3b85714">
+    <link rel="stylesheet" href="/assets/css/Nunito.css?h=555dddb13675206f5abf5cd296b628b3">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="/assets/css/Animated-Typing-With-Blinking.css?h=b9f293d3fb23df4806cb012d2ed48611">
+    <link rel="stylesheet" href="/assets/css/button_link.css?h=ffbc888b85647755812df45e541e8e71">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="/assets/css/ListMaterias-1.css?h=5f364738728291e9e4aa72efe2b921c7">
+    <link rel="stylesheet" href="/assets/css/ListMaterias.css?h=1fe6a44da6474d6df7e0833b1703650f">
+    <link rel="stylesheet" href="/assets/css/Login-Form-Basic.css?h=92bfdc06623e71c3b7773fb89801d0d0">
+    <link rel="stylesheet" href="/assets/css/Search-Input-Responsive-with-Icon.css?h=c5a63853e6dd86fd9ec900eae82d3494">
+</head>
+
+<body style="font-family: Nunito, sans-serif;">
+<nav class="navbar navbar-light navbar-expand-md fixed-top py-3" style="font-family: Nunito, sans-serif; font-weight: bold; background: #ffffff;">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="VistaAdministrador">
+            <img src="/assets/img/CIAcademic.png?h=7b6fc02cca22ff5370162431d2f8c199" alt="">
+        </a>
+        <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2">
+            <span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navcol-2">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item dropdown">
+                    <a class="dropdown-toggle nav-link green-background course-pointer" aria-expanded="false" data-bs-toggle="dropdown" href="#">Perfil</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="Index"><i class="far fa-user-circle icon-margin"></i>Cerrar Sesion</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="UsuariosAdministrador">Usuarios</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<section class="profile">
+    <h1 class="d-flex justify-content-center margin-heading" data-aos="fade-down" style="padding-bottom: 66px; font-family: Nunito, sans-serif; text-align: center;">Crear Docente</h1>
+    <div class="col-md-10 offset-md-1" style="margin: 0px; margin-bottom: 28px; width: 100%;">
+        <div class="card m-auto" style="max-width: 850px; border-radius: 21px; border: 3px solid rgb(0, 4, 7); width: 100%;">
+            <div class="card-body flex-grow-0" style="width: 100%;">
+                <form class="d-flex align-items-center">
+                    <i class="fas fa-search d-none d-sm-block h4 text-body m-0"></i><input class="form-control form-control-lg flex-shrink-1 form-control-borderless" type="search" placeholder="Buscar ID" name="search"><button class="btn btn-success btn-lg" type="submit" style="background: #FF9F1C; font-weight: bold; border-radius: 12px; color: rgb(0, 0, 0);">Buscar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container padding-container" style="background: #CBF3F0; padding-bottom: 41px;">
+        <section class="flex-column justify-content-center align-items-center" style="background: white; padding: 20px; border-radius: 15px; width: auto; height: auto;">
+            <div class="d-flex d-sm-flex d-md-flex d-lg-flex d-xl-flex d-xxl-flex flex-column justify-content-center align-items-center flex-md-row background-div" style="background: #ffffff; font-family: Nunito, sans-serif; font-size: 27px; font-weight: bold; padding-bottom: 17px; width: 100%;">
+                <p class="d-flex flex-grow-1 justify-content-center align-items-center justify-content-sm-center justify-content-lg-center align-items-lg-center" style="font-family: Nunito, sans-serif; text-align: center; width: 100%; height: auto; font-size: 26px;">Pedro - 1098274</p>
+                <div class="d-flex d-md-flex justify-content-center" style="background: rgba(255, 159, 28, 0); width: 100%; height: auto;">
+                    <button   onclick="window.location.href = 'ConsultarDocenteAdministrador';" class="btn btn-primary btn-project" type="button" style="background: #FF9F1C; font-family: Nunito, sans-serif; padding: 8px 40px; color: rgb(0, 0, 0); font-size: 20px; margin-left: 0px; height: auto; border-radius: 14px;">Consultar</button>
+                </div>
+            </div>
+            <div class="d-flex d-sm-flex d-md-flex d-lg-flex d-xl-flex d-xxl-flex flex-column justify-content-center align-items-center flex-md-row background-div" style="background: #ffffff; font-family: Nunito, sans-serif; font-size: 27px; font-weight: bold; padding-bottom: 17px; width: 100%;">
+                <p class="d-flex flex-grow-1 justify-content-center align-items-center justify-content-sm-center justify-content-lg-center align-items-lg-center" style="font-family: Nunito, sans-serif; text-align: center; width: 100%; height: auto; font-size: 26px;">Maria - 1895784</p>
+                <div class="d-flex d-md-flex justify-content-center" style="background: rgba(255, 159, 28, 0); width: 100%; height: auto;">
+                    <button  onclick="window.location.href = 'ConsultarDocenteAdministrador';" class="btn btn-primary btn-project" type="button" style="background: #FF9F1C; font-family: Nunito, sans-serif; padding: 8px 40px; color: rgb(0, 0, 0); font-size: 20px; margin-left: 0px; height: auto; border-radius: 14px;">
+                        <strong>Consultar</strong><br>
+                    </button>
+                </div>
+            </div>
+            <div class="d-flex d-sm-flex d-md-flex d-lg-flex d-xl-flex d-xxl-flex flex-column justify-content-center align-items-center flex-md-row background-div" style="background: #ffffff; font-family: Nunito, sans-serif; font-size: 27px; font-weight: bold; padding-bottom: 17px; width: 100%;">
+                <p class="d-flex flex-grow-1 justify-content-center align-items-center justify-content-sm-center justify-content-lg-center align-items-lg-center" style="font-family: Nunito, sans-serif; text-align: center; width: 100%; height: auto; font-size: 26px;">Asignatura 2</p>
+                <div class="d-flex d-md-flex justify-content-center" style="background: rgba(255, 159, 28, 0); width: 100%; height: auto;">
+                    <button onclick="window.location.href = 'ConsultarDocenteAdministrador';" class="btn btn-primary btn-project" type="button" style="background: #FF9F1C; font-family: Nunito, sans-serif; padding: 8px 40px; color: rgb(0, 0, 0); font-size: 20px; margin-left: 0px; height: auto; border-radius: 14px;">
+                        <strong>Consultar</strong><br>
+                    </button>
+                </div>
+            </div>
+            <div class="d-flex d-sm-flex d-md-flex d-lg-flex d-xl-flex d-xxl-flex flex-column justify-content-center align-items-center flex-md-row background-div" style="background: #ffffff; font-family: Nunito, sans-serif; font-size: 27px; font-weight: bold; padding-bottom: 17px; width: 100%;">
+                <p class="d-flex flex-grow-1 justify-content-center align-items-center justify-content-sm-center justify-content-lg-center align-items-lg-center" style="font-family: Nunito, sans-serif; text-align: center; width: 100%; height: auto; font-size: 26px;">Asignatura 2</p>
+                <div class="d-flex d-md-flex justify-content-center" style="background: rgba(255, 159, 28, 0); width: 100%; height: auto;">
+                    <button  onclick="window.location.href = 'ConsultarDocenteAdministrador';" class="btn btn-primary btn-project" type="button" style="background: #FF9F1C; font-family: Nunito, sans-serif; padding: 8px 40px; color: rgb(0, 0, 0); font-size: 20px; margin-left: 0px; height: auto; border-radius: 14px;">
+                        <strong>Consultar</strong><br>
+                    </button>
+                </div>
+            </div>
+        </section>
+        <div class="d-flex d-md-flex justify-content-center" style="background: rgba(255, 159, 28, 0); width: 100%; height: auto;">
+            <button  onclick="window.location.href = 'CrearNuevoUsuarioAdministrador';" class="btn btn-primary btn-project" type="button" style="background: #FF9F1C; font-family: Nunito, sans-serif; padding: 8px 40px; color: rgb(0, 0, 0); font-size: 20px; margin-left: 0px; height: auto; border-radius: 14px; margin-top: 31px;">Insertar Docente</button>
+        </div>
+    </div>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/js/bs-init.js?h=02a8f8d0119ea38ce4670281c1438789"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+</body>
+
+</html>

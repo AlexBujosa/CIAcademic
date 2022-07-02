@@ -1,0 +1,82 @@
+﻿@page
+@model CIAcademicApp.Pages.UsuariosAdministradorModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en" style="font-family: Nunito, sans-serif;">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Login Model</title>
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css?h=b4baa272cdf7e6fc929207f0eba1527f">
+    <link rel="stylesheet" href="/assets/css/Lato.css?h=dacfec06adcdcea49cc3cdead3b85714">
+    <link rel="stylesheet" href="/assets/css/Nunito.css?h=555dddb13675206f5abf5cd296b628b3">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="/assets/css/Animated-Typing-With-Blinking.css?h=b9f293d3fb23df4806cb012d2ed48611">
+    <link rel="stylesheet" href="/assets/css/button_link.css?h=ffbc888b85647755812df45e541e8e71">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="/assets/css/ListMaterias-1.css?h=5f364738728291e9e4aa72efe2b921c7">
+    <link rel="stylesheet" href="/assets/css/ListMaterias.css?h=1fe6a44da6474d6df7e0833b1703650f">
+    <link rel="stylesheet" href="/assets/css/Login-Form-Basic.css?h=92bfdc06623e71c3b7773fb89801d0d0">
+    <link rel="stylesheet" href="/assets/css/Search-Input-Responsive-with-Icon.css?h=c5a63853e6dd86fd9ec900eae82d3494">
+</head>
+
+<body style="font-family: Nunito, sans-serif;">
+<nav class="navbar navbar-light navbar-expand-md fixed-top py-3" style="font-family: Nunito, sans-serif; font-weight: bold; background: #ffffff;">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="VistaAdministrador">
+            <img src="/assets/img/CIAcademic.png?h=7b6fc02cca22ff5370162431d2f8c199" alt="">
+        </a>
+        <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2">
+            <span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navcol-2">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item dropdown">
+                    <a class="dropdown-toggle nav-link green-background course-pointer" aria-expanded="false" data-bs-toggle="dropdown" href="#">Perfil</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="Index"><i class="far fa-user-circle icon-margin"></i>Cerrar Sesion</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="UsuariosAdministrador">Usuarios</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<h1 class="d-flex justify-content-center margin-heading" data-aos="fade-down" style="padding-bottom: 0px; font-weight: bold; text-align: center; padding-top: 26px; margin-bottom: -88px;">Usuarios</h1>
+<div class="container margin-container">
+    <div class="row" style="margin-top: 0px;">
+        <div class="col-md-6">
+            <div class="align-items-lg-center div-brackgrround mb-3" style="border-radius: 27px; padding: 42px;">
+                <div class="d-xl-flex justify-content-xl-center">
+                    <img class="img-fluid d-xl-flex" src="/assets/img/Rectangle%2014.png?h=177a71337a8d78f56a4bda15a45690f1" style="border-radius: 34px; border-width: 12px; border-color: rgb(248, 149, 0);">
+                </div>
+                <div class="align-items-center"></div>
+                <div class="d-flex d-md-flex justify-content-center" style="background: rgba(255, 159, 28, 0); width: 100%; height: auto;">
+                    <button onclick="window.location.href = 'CrearEstudiante';" class="btn btn-primary btn-project" type="button" style="background: #FF9F1C; font-family: Nunito, sans-serif; padding: 8px 40px; color: rgb(0, 0, 0); font-size: 20px; margin-left: 0px; height: auto; border-radius: 14px; margin-top: 30px;">Estudiantes</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="align-items-lg-center div-brackgrround mb-3" style="border-radius: 27px; padding: 42px;">
+                <div class="d-xl-flex justify-content-xl-center">
+                    <img class="img-fluid d-xl-flex" src="/assets/img/Rectangle%2018.png?h=1aaf39b6c9222feb3f7afc72a163ada9" style="border-radius: 34px; border-width: 12px; border-color: rgb(248, 149, 0);">
+                </div>
+                <div class="align-items-center"></div>
+                <div class="d-flex d-md-flex justify-content-center" style="background: rgba(255, 159, 28, 0); width: 100%; height: auto;">
+                    <button onclick="window.location.href = 'CrearDocente';"  class="btn btn-primary btn-project" type="button" style="background: #FF9F1C; font-family: Nunito, sans-serif; padding: 8px 40px; color: rgb(0, 0, 0); font-size: 20px; margin-left: 0px; height: auto; border-radius: 14px; margin-top: 30px;">Docentes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/js/bs-init.js?h=02a8f8d0119ea38ce4670281c1438789"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+</body>
+
+</html>
