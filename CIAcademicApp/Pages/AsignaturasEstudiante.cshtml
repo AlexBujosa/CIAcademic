@@ -1,0 +1,109 @@
+﻿@page
+@model CIAcademicApp.Pages.AsignaturasEstudianteModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en" style="font-family: Nunito, sans-serif;">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Login Model</title>
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css?h=b4baa272cdf7e6fc929207f0eba1527f">
+    <link rel="stylesheet" href="/assets/css/Lato.css?h=dacfec06adcdcea49cc3cdead3b85714">
+    <link rel="stylesheet" href="/assets/css/Nunito.css?h=555dddb13675206f5abf5cd296b628b3">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="/assets/css/Animated-Typing-With-Blinking.css?h=b9f293d3fb23df4806cb012d2ed48611">
+    <link rel="stylesheet" href="/assets/css/button_link.css?h=ffbc888b85647755812df45e541e8e71">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="/assets/css/ListMaterias-1.css?h=5f364738728291e9e4aa72efe2b921c7">
+    <link rel="stylesheet" href="/assets/css/ListMaterias.css?h=1fe6a44da6474d6df7e0833b1703650f">
+    <link rel="stylesheet" href="/assets/css/Login-Form-Basic.css?h=92bfdc06623e71c3b7773fb89801d0d0">
+    <link rel="stylesheet" href="/assets/css/Search-Input-Responsive-with-Icon.css?h=c5a63853e6dd86fd9ec900eae82d3494">
+</head>
+
+<body style="font-family: Nunito, sans-serif;">
+    <h1 class="d-flex justify-content-center margin-heading" data-aos="fade-down" style="padding-bottom: 0px;font-weight: bold;text-align: center;padding-top: 26px;">Asignaturas</h1>
+    <nav class="navbar navbar-light navbar-expand-md fixed-top py-3" style="font-family: Nunito, sans-serif; font-weight: bold; background: #ffffff;">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="VistaUsuario">
+            <img src="/assets/img/CIAcademic.png?h=7b6fc02cca22ff5370162431d2f8c199" alt="">
+        </a>
+        <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2">
+            <span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navcol-2">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item dropdown">
+                    <a class="dropdown-toggle nav-link green-background course-pointer" aria-expanded="false" data-bs-toggle="dropdown">Perfil</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item green-background" href="VistaUsuario">
+                            <i class="far fa-user-circle icon-margin"></i>Perfil
+                        </a>
+                        <a class="dropdown-item" href="SeleccionarAsignatura">
+                            <i class="fas fa-tasks icon-margin"></i>Seleccionar Asignaturas
+                        </a>
+                        <a class="dropdown-item" href="HistorialAcademico">
+                            <i class="far fa-file-alt icon-margin"></i>Historial Academico
+                        </a>
+                        <a class="dropdown-item" href="Retirar">
+                            <i class="far fa-user-circle icon-margin"></i>Retirar Asignatura
+                        </a>
+                        <a class="dropdown-item" href="Index">
+                            <i class="icon ion-android-exit icon-margin"></i>Cerrar Sesion
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Calificaciones">Calificaciones</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="AsignaturasEstudiante">Asignaturas</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    <div class="container margin-container">
+        <div class="row" style="margin-top: 0px;">
+            <div class="col-md-6">
+                <div class="align-items-lg-center div-brackgrround mb-3" style="border-radius: 27px;padding: 42px;">
+                    <div class="d-xl-flex justify-content-xl-center"><img class="img-fluid d-xl-flex" src="/assets/img/Rectangle%2010.png?h=5e92c767d62942d762211e36ad40b859" style="border-radius: 34px;border: 12px dotted rgb(248,149,0) ;"></div>
+                    <div class="align-items-center">
+                        <p class="d-flex justify-content-center asignatura-parrafo">Biología</p><a class="d-flex d-md-flex justify-content-center align-items-center justify-content-md-center asignatura-parrafo" style="text-decoration: underline;color: rgb(100,112,123);" href="InformacionDocenteEstudiante">Docente@icademic.com</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="align-items-lg-center div-brackgrround mb-3" style="border-radius: 27px;padding: 42px;">
+                    <div class="d-xl-flex justify-content-xl-center"><img class="img-fluid d-xl-flex" src="/assets/img/Rectangle%2012.png?h=b63a1cbe3730f1525fa0c8cbac10ad84" style="border-radius: 34px;border: 12px dotted rgb(248,149,0) ;"></div>
+                    <div class="align-items-center">
+                        <p class="d-flex justify-content-center asignatura-parrafo">Biología</p><a class="d-flex d-md-flex justify-content-center align-items-center justify-content-md-center asignatura-parrafo" style="text-decoration: underline;color: rgb(100,112,123);" href="InformacionDocenteEstudiante">Docente@icademic.com</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="align-items-lg-center div-brackgrround mb-3" style="border-radius: 27px;padding: 42px;">
+                    <div class="d-xl-flex justify-content-xl-center"><img class="img-fluid d-xl-flex" src="/assets/img/Rectangle%207.png?h=cb0a3a54a8ee883dfd969abd94065064" style="border-radius: 34px;border: 12px dotted rgb(248,149,0) ;"></div>
+                    <div class="align-items-center">
+                        <p class="d-flex justify-content-center asignatura-parrafo">Biología</p><a class="d-flex d-md-flex justify-content-center align-items-center justify-content-md-center asignatura-parrafo" style="text-decoration: underline;color: rgb(100,112,123);" href="InformacionDocenteEstudiante">Docente@icademic.com</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="align-items-lg-center div-brackgrround mb-3" style="border-radius: 27px;padding: 42px;">
+                    <div class="d-xl-flex justify-content-xl-center"><img class="img-fluid d-xl-flex" src="/assets/img/Rectangle%208.png?h=2b516966ceb0d578de1ef6f8572a82cf" style="border-radius: 34px;border: 12px dotted rgb(248,149,0) ;"></div>
+                    <div class="align-items-center">
+                        <p class="d-flex justify-content-center asignatura-parrafo">Biología</p><a class="d-flex d-md-flex justify-content-center align-items-center justify-content-md-center asignatura-parrafo" style="text-decoration: underline;color: rgb(100,112,123);" href="InformacionDocenteEstudiante">Docente@icademic.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/bs-init.js?h=02a8f8d0119ea38ce4670281c1438789"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+</body>
+
+</html>
