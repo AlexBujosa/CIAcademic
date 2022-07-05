@@ -1,28 +1,20 @@
 ﻿using System.Data.SqlClient;
 
-namespace CIAcademicApp.DatabaseLayer
+namespace CIAcademicApp
 {
     public class Conexion
     {
-        private readonly IConfiguration _configuration;
         public string ConnectionString;
         public SqlConnection sqlConnection;
 
 
-
-        public Conexion(IConfiguration configuration)
-        {
-            _configuration = configuration;
-            ConnectionString = _configuration.GetConnectionString("CIAcademic");
-
-        }
         public string GetConnStr()
         {
             return ConnectionString;
         }
         public void OpenConnection()
         {
-            sqlConnection = new SqlConnection(ConnectionString);
+            sqlConnection = new SqlConnection("workstation id=CIAcademic.mssql.somee.com;packet size=4096;user id=AlexBujosa_SQLLogin_1;pwd=xpfqvflfr7;data source=CIAcademic.mssql.somee.com;persist security info=False;initial catalog=CIAcademic");
             sqlConnection.Open();
         }
         public void CloseConnection()

@@ -10,7 +10,7 @@ namespace CIAcademicApp.DatabaseLayer
         public Conexion con;
         public Autenticarse()
         {
-            con = new Conexion(configuration);
+            con = new Conexion();
         }
 
         public DataSet GetAll(int ID, string Password)

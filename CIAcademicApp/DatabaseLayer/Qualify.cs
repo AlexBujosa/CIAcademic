@@ -11,7 +11,7 @@ namespace CIAcademicApp.DatabaseLayer
         static filestream filestream;
         public Qualify()
         {
-            con = new Conexion(configuration);
+            con = new Conexion();
             filestream = new filestream();
         }
         public int ppQualify(int ID_Student, int ID_Course, int Qualification, int ID_Equivalent)

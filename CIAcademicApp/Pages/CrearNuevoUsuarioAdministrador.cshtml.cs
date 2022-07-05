@@ -1,3 +1,4 @@
+using CIAcademicApp.BusinessLayer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
@@ -23,7 +24,7 @@ namespace CIAcademicApp.Pages
         public string Email { get; set; }
         [BindProperty]
         [Required]
-        public string Rol { get; set; }
+        public int Rol { get; set; }
         [BindProperty]
         [Required]
         [MaxLength(100), MinLength(8)]
@@ -35,7 +36,7 @@ namespace CIAcademicApp.Pages
             Message = "In get Used";
             ViewData["Message"] = Message;
         }
-        public void OnPost()
+        public async void OnPost()
         {
             if (!ModelState.IsValid)
             {
@@ -45,8 +46,15 @@ namespace CIAcademicApp.Pages
             else
             {
                 Message = "In Post used";
+                Administrator administrator = new Administrator();
+
+                Task<int> result = administrator.save_User(Name, LastName, Email, Password, Rol);
+                ViewData["Message"] = "klk";
+                int intResult = await result;
+
                 ViewData["Message"] = Message + $" Su nombre es {Name}, apelido {LastName}, Email {Email}. Rol: {Rol}";
             }
+            
             
           
         }

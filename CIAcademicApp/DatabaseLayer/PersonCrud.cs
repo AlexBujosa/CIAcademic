@@ -1,27 +1,24 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
-
+using log4net;
 namespace CIAcademicApp.DatabaseLayer
 {
     public class PersonCrud
     {
         public SqlCommand sqlCommand;
-        private IConfiguration configuration;
         public Conexion con;
         static SqlTransaction transaction = null;
-        static filestream filestream;
+        private static readonly ILog logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public PersonCrud()
         {
-            con = new Conexion(configuration);
-            filestream = new filestream();
+            con = new Conexion();
         }
-        public int ppInsertPerson(string Name, string LastName, string Email, string Password, int ID_Rol)
+        public async Task<int> ppInsertPerson(string Name, string LastName, string Email, string Password, int ID_Rol)
         {
-            int ID_Person = 0;
-            DataSet dataSet = new DataSet();
+            int Respuesta = 0;
             con.OpenConnection();
+
             sqlCommand = new SqlCommand();
-            transaction = con.sqlConnection.BeginTransaction();
             sqlCommand.CommandText = "ppInsertPerson";
             sqlCommand.Parameters.AddWithValue("@Name_Person", Name);
             sqlCommand.Parameters.AddWithValue("@LastName_Person", LastName);
@@ -30,20 +27,33 @@ namespace CIAcademicApp.DatabaseLayer
             sqlCommand.Parameters.AddWithValue("@ID_Rol", ID_Rol);
             sqlCommand.CommandType = CommandType.StoredProcedure;
             sqlCommand.Connection = con.sqlConnection;
-            sqlCommand.Transaction = transaction;
-            var da = new SqlDataAdapter(sqlCommand);
             try
             {
-                da.Fill(dataSet);
 
-                ID_Person = int.Parse(dataSet.Tables[0].Rows[0][0].ToString());
+                Task<int> resp = sqlCommand.ExecuteNonQueryAsync();
+                Respuesta = await resp;
+
+                if (ID_Rol == 1)
+                {
+                    logger.Info($"Se ha insertado el estudiante de Nombre " + Name + ", Apellido " + LastName + " y Correo " + Email);
+                    
+                }else if(ID_Rol == 2)
+                {
+                    logger.Info($"Se ha insertado el profesor de Nombre " + Name + ", Apellido " + LastName + " y Correo " + Email);
+                }
+                else if(ID_Rol == 3)
+                {
+                    logger.Info($"Se ha insertado el administradosr de Nombre " + Name + ", Apellido " + LastName + " y Correo " + Email);
+                }
+
             }
             catch
             {
-                transaction.Rollback();
+                string[] type = { "Estudiante", "Profesor", "Administrador" };
+                logger.Error($"Oh Oh ha ocurrido un error tratando de registrar un " + type[ID_Rol - 1]);
             }
-
-            return ID_Person;
+            con.CloseConnection();
+            return Respuesta;
         }
         public int ppInsertTeacher(int ID_Person)
         {
@@ -57,7 +67,7 @@ namespace CIAcademicApp.DatabaseLayer
             try
             {
                 Respuesta = sqlCommand.ExecuteNonQuery();
-                filestream.Info($"Se ha insertado un profesor con ID {ID_Person}");
+                logger.Info($"Se ha insertado un profesor con ID {ID_Person}");
                 transaction.Commit();
             }
             catch
@@ -82,7 +92,7 @@ namespace CIAcademicApp.DatabaseLayer
             try
             {
                 Respuesta = sqlCommand.ExecuteNonQuery();
-                filestream.Info($"Se ha insertado un estudiante con ID {ID_Person}");
+                logger.Info($"Se ha insertado un estudiante con ID {ID_Person}");
                 transaction.Commit();
             }
             catch
@@ -104,12 +114,12 @@ namespace CIAcademicApp.DatabaseLayer
             try
             {
                 Respuesta = sqlCommand.ExecuteNonQuery();
-                filestream.Info($"Se ha Eliminado un estudiante con ID {ID_Person}");
+                logger.Info($"Se ha Eliminado un estudiante con ID {ID_Person}");
 
             }
             catch (Exception er)
             {
-                filestream.Error($"Oh oh ha ocurrido un error al tratar de eliminar a un estudiante con ID {ID_Person}. Mas Detalle del error: {er}");
+                logger.Info($"Oh oh ha ocurrido un error al tratar de eliminar a un estudiante con ID {ID_Person}. Mas Detalle del error: {er}");
             }
             con.CloseConnection();
             return Respuesta;
@@ -130,12 +140,12 @@ namespace CIAcademicApp.DatabaseLayer
             try
             {
                 Respuesta = sqlCommand.ExecuteNonQuery();
-                filestream.Info($"Se ha Actualizado un estudiante con ID {ID_Person}");
+                logger.Info($"Se ha Actualizado un estudiante con ID {ID_Person}");
 
             }
             catch (Exception er)
             {
-                filestream.Error($"Oh oh ha ocurrido un error al tratar de eliminar a un estudiante con ID {ID_Person}. Mas Detalle del error: {er}");
+                logger.Info($"Oh oh ha ocurrido un error al tratar de eliminar a un estudiante con ID {ID_Person}. Mas Detalle del error: {er}");
             }
             return Respuesta;
             con.CloseConnection();
@@ -152,12 +162,12 @@ namespace CIAcademicApp.DatabaseLayer
             try
             {
                 Respuesta = sqlCommand.ExecuteNonQuery();
-                filestream.Info($"Se ha Eliminado un profesor con ID {ID_Person}");
+                logger.Info($"Se ha Eliminado un profesor con ID {ID_Person}");
 
             }
             catch (Exception er)
             {
-                filestream.Error($"Oh oh ha ocurrido un error al tratar de eliminar a un profesor con ID {ID_Person}. Mas Detalle del error: {er}");
+                logger.Info($"Oh oh ha ocurrido un error al tratar de eliminar a un profesor con ID {ID_Person}. Mas Detalle del error: {er}");
             }
             con.CloseConnection();
             return Respuesta;

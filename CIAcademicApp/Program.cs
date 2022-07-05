@@ -1,3 +1,5 @@
+using CIAcademicApp;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -21,5 +23,7 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapRazorPages();
+Global global = new Global();
+global.StartApplication();
 
 app.Run();

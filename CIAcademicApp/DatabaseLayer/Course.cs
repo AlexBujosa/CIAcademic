@@ -11,7 +11,7 @@ namespace CIAcademicApp.DatabaseLayer
         static filestream filestream;
         public Course()
         {
-            con = new Conexion(configuration);
+            con = new Conexion();
             filestream = new filestream();
         }
         public int ppInsertCourse(string Key_Course, string Name_Course, int Credit_Course)

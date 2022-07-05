@@ -7,12 +7,11 @@ namespace CIAcademicApp.DatabaseLayer
         public string path;
         public filestream()
         {
-            path = Directory.GetCurrentDirectory();
-
+            path =  "info.txt";
         }
         public void Error(string value)
         {
-            using (FileStream fs = File.Open(path, FileMode.Open, FileAccess.Write, FileShare.None))
+            using (FileStream fs = File.Open(path, FileMode.Open, FileAccess.Write, FileShare.ReadWrite))
             {
                 Byte[] info = new UTF8Encoding(true).GetBytes("Time: " + DateTime.Now + ". Error: " + value);
                 // Add some information to the file.  
@@ -21,7 +20,7 @@ namespace CIAcademicApp.DatabaseLayer
         }
         public void Info(string value)
         {
-            using (FileStream fs = File.Open(path, FileMode.Open, FileAccess.Write, FileShare.None))
+            using (FileStream fs = File.Open(path, FileMode.Open, FileAccess.Write, FileShare.ReadWrite))
             {
                 Byte[] info = new UTF8Encoding(true).GetBytes("Time: " + DateTime.Now + ". Info: " + value);
                 // Add some information to the file.  
@@ -30,7 +29,7 @@ namespace CIAcademicApp.DatabaseLayer
         }
         public void Fatal(string value)
         {
-            using (FileStream fs = File.Open(path, FileMode.Open, FileAccess.Write, FileShare.None))
+            using (FileStream fs = File.Open(path, FileMode.Open, FileAccess.Write, FileShare.ReadWrite))
             {
                 Byte[] info = new UTF8Encoding(true).GetBytes("Time: " + DateTime.Now + ". Fatal: " + value);
                 // Add some information to the file.  
