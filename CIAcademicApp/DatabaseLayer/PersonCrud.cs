@@ -7,7 +7,6 @@ namespace CIAcademicApp.DatabaseLayer
     {
         public SqlCommand sqlCommand;
         public Conexion con;
-        static SqlTransaction transaction = null;
         private static readonly ILog logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public PersonCrud()
         {
@@ -25,6 +24,7 @@ namespace CIAcademicApp.DatabaseLayer
             sqlCommand.Parameters.AddWithValue("@Email_Person", Email);
             sqlCommand.Parameters.AddWithValue("@Password_Person", Password);
             sqlCommand.Parameters.AddWithValue("@ID_Rol", ID_Rol);
+            sqlCommand.Parameters.AddWithValue("@Active", 1);
             sqlCommand.CommandType = CommandType.StoredProcedure;
             sqlCommand.Connection = con.sqlConnection;
             try
@@ -55,74 +55,31 @@ namespace CIAcademicApp.DatabaseLayer
             con.CloseConnection();
             return Respuesta;
         }
-        public int ppInsertTeacher(int ID_Person)
+        public Task<int> ppDeletePerson(int ID_Person)
         {
-            int Respuesta = 0;
-            sqlCommand = new SqlCommand();
-            sqlCommand.CommandText = "ppInsertTeacher";
-            sqlCommand.Parameters.AddWithValue("@ID_Teacher", ID_Person);
-            sqlCommand.CommandType = CommandType.StoredProcedure;
-            sqlCommand.Connection = con.sqlConnection;
-            sqlCommand.Transaction = transaction;
-            try
+            return Task.Run(() =>
             {
-                Respuesta = sqlCommand.ExecuteNonQuery();
-                logger.Info($"Se ha insertado un profesor con ID {ID_Person}");
-                transaction.Commit();
-            }
-            catch
-            {
-                transaction.Rollback();
-            }
-            con.CloseConnection();
-            return Respuesta;
-        }
-        public int ppInsertStudent(int ID_Person)
-        {
-            int Respuesta = 0;
-            sqlCommand = new SqlCommand();
-            sqlCommand.CommandText = "ppInsertStudent";
-            sqlCommand.Parameters.AddWithValue("@ID_Student", ID_Person);
-            sqlCommand.Parameters.AddWithValue("@General_Index", 4.0);
-            sqlCommand.Parameters.AddWithValue("@Accumulated_Credit", 0);
-            sqlCommand.Parameters.AddWithValue("@Accumulated_Point", 0);
-            sqlCommand.CommandType = CommandType.StoredProcedure;
-            sqlCommand.Connection = con.sqlConnection;
-            sqlCommand.Transaction = transaction;
-            try
-            {
-                Respuesta = sqlCommand.ExecuteNonQuery();
-                logger.Info($"Se ha insertado un estudiante con ID {ID_Person}");
-                transaction.Commit();
-            }
-            catch
-            {
-                transaction.Rollback();
-            }
-            con.CloseConnection();
-            return Respuesta;
-        }
-        public int ppDeleteStudent(int ID_Person)
-        {
-            con.OpenConnection();
-            int Respuesta = 0;
-            sqlCommand = new SqlCommand();
-            sqlCommand.CommandText = "ppDeleteStudent";
-            sqlCommand.Parameters.AddWithValue("@ID_Student", ID_Person);
-            sqlCommand.CommandType = CommandType.StoredProcedure;
-            sqlCommand.Connection = con.sqlConnection;
-            try
-            {
-                Respuesta = sqlCommand.ExecuteNonQuery();
-                logger.Info($"Se ha Eliminado un estudiante con ID {ID_Person}");
+                con.OpenConnection();
+                int Respuesta = 0;
+                sqlCommand = new SqlCommand();
+                sqlCommand.CommandText = "ppDeletePerson";
+                sqlCommand.Parameters.AddWithValue("@ID_Person", ID_Person);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Connection = con.sqlConnection;
+                try
+                {
+                    Respuesta = sqlCommand.ExecuteNonQuery();
+                    logger.Info($"Se ha Eliminado el usuario con ID {ID_Person}");
 
-            }
-            catch (Exception er)
-            {
-                logger.Info($"Oh oh ha ocurrido un error al tratar de eliminar a un estudiante con ID {ID_Person}. Mas Detalle del error: {er}");
-            }
-            con.CloseConnection();
-            return Respuesta;
+                }
+                catch (Exception er)
+                {
+                    logger.Info($"Oh oh ha ocurrido un error al tratar de eliminar el usuario con ID {ID_Person}. Mas Detalle del error: {er}");
+                }
+                con.CloseConnection();
+                return Respuesta;
+            });
+           
         }
         public int ppUpdatePerson(int ID_Person, string Name, string LastName, string Email, string Password)
         {
@@ -132,7 +89,7 @@ namespace CIAcademicApp.DatabaseLayer
             sqlCommand.CommandText = "ppUpdatePerson";
             sqlCommand.Parameters.AddWithValue("@ID_Person", ID_Person);
             sqlCommand.Parameters.AddWithValue("@Name_Person", Name);
-            sqlCommand.Parameters.AddWithValue("@Last_Person", LastName);
+            sqlCommand.Parameters.AddWithValue("@LastName_Person", LastName);
             sqlCommand.Parameters.AddWithValue("@Email_Person", Email);
             sqlCommand.Parameters.AddWithValue("@Password_Person", Password);
             sqlCommand.CommandType = CommandType.StoredProcedure;
@@ -147,30 +104,30 @@ namespace CIAcademicApp.DatabaseLayer
             {
                 logger.Info($"Oh oh ha ocurrido un error al tratar de eliminar a un estudiante con ID {ID_Person}. Mas Detalle del error: {er}");
             }
-            return Respuesta;
             con.CloseConnection();
+            return Respuesta;
+           
         }
-        public int ppDeleteTeacher(int ID_Person)
+        public DataSet ppGetOnePerson(int ID)
         {
+            DataSet dataSet = new DataSet();
             con.OpenConnection();
-            int Respuesta = 0;
             sqlCommand = new SqlCommand();
-            sqlCommand.CommandText = "ppDeleteTeacher";
-            sqlCommand.Parameters.AddWithValue("@ID_Teacher", ID_Person);
+            sqlCommand.CommandText = "ppGetOnePerson";
+            sqlCommand.Parameters.AddWithValue("@ID_Person", ID);
             sqlCommand.CommandType = CommandType.StoredProcedure;
             sqlCommand.Connection = con.sqlConnection;
+            var da = new SqlDataAdapter(sqlCommand);
             try
             {
-                Respuesta = sqlCommand.ExecuteNonQuery();
-                logger.Info($"Se ha Eliminado un profesor con ID {ID_Person}");
+                da.Fill(dataSet);
+            }
+            catch (Exception ex)
+            {
 
             }
-            catch (Exception er)
-            {
-                logger.Info($"Oh oh ha ocurrido un error al tratar de eliminar a un profesor con ID {ID_Person}. Mas Detalle del error: {er}");
-            }
-            con.CloseConnection();
-            return Respuesta;
+            return dataSet;
         }
+       
     }
 }

@@ -47,12 +47,9 @@ namespace CIAcademicApp.Pages
             {
                 Message = "In Post used";
                 Administrator administrator = new Administrator();
-
                 Task<int> result = administrator.save_User(Name, LastName, Email, Password, Rol);
-                ViewData["Message"] = "klk";
                 int intResult = await result;
-
-                ViewData["Message"] = Message + $" Su nombre es {Name}, apelido {LastName}, Email {Email}. Rol: {Rol}";
+                
             }
             
             

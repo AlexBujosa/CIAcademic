@@ -1,6 +1,9 @@
 ﻿@page
-@model CIAcademicApp.Pages.EditarEstudianteAdministradorModel
+@using System.Data;
+@model CIAcademicApp.Pages.CrearNuevaSeccionModel
 @{
+    var tblTeacher = (DataTable)ViewData["tblTeacher"];
+    var tblCourse = (DataTable) ViewData["tblCourse"];
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +41,7 @@
                     <a class="dropdown-toggle nav-link  course-pointer" aria-expanded="false" data-bs-toggle="dropdown" href="#">Perfil</a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="CrearSeccion"><i class="far fa-user-circle icon-margin"></i>Secciones</a>
-                        <a class="dropdown-item" href="CrearAsignatura"><i class="far fa-user-circle icon-margin"></i>Asignaturas</a>
+                        <a class="dropdown-item" href="CrearAsignatura"><i class="far fa-user-circle icon-margin"></i>Asignatura</a>
                         <a class="dropdown-item" href="Index"><i class="far fa-user-circle icon-margin"></i>Cerrar Sesion</a>
                     </div>
                 </li>
@@ -58,38 +61,34 @@
         <div class="row d-flex d-md-flex flex-column flex-lg-row justify-content-lg-center">
            <form class="col-md-8 col-lg-12 col-xl-10 offset-md-2 offset-lg-0 d-flex flex-column align-items-center flex-wrap flex-lg-row justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-start" data-aos="fade-left" data-aos-duration="1850" style="background: #CBF3F0; border-radius: 26px; padding-bottom: 0px;" method="post">
                 <div class="d-flex flex-column justify-content-center align-items-center">
-                    <div class="d-xl-flex flex-column justify-content-xl-center align-items-xl-start" style="padding: 22px;">
+                     <div class="d-xl-flex flex-column justify-content-xl-center align-items-xl-start" style="padding: 22px; margin-bottom: -31px;">
                         <div>
-                            <h5 class="d-xl-flex justify-content-xl-start" style="font-weight: bold;">Nombre</h5>
+                            <h5 class="d-xl-flex justify-content-xl-start" style="font-weight: bold;" >Cursos</h5>
                         </div>
                         <div>
-                            <input type="text" style="border-radius: 10px; padding: 8px 2px;" name="Name" pattern="[a-zA-Z'-'\s]*" asp-for="Name" value="@ViewData["Name"]">
-                        </div>
-                    </div>
-                    <div class="d-xl-flex flex-column justify-content-xl-center align-items-xl-start" style="padding: 22px;">
-                        <div>
-                            <h5 class="d-xl-flex justify-content-xl-start" style="font-weight: bold;">Correo</h5>
-                        </div>
-                        <div>
-                            <input type="email" style="border-radius: 10px; padding: 8px 2px;" name="Email" asp-for="Email" value="@ViewData["Email"]">
-                        </div>
-                    </div>
-                </div>
-                <div class="d-lg-flex flex-column justify-content-lg-start" style="height: 417px;">
-                    <div class="d-xl-flex flex-column justify-content-xl-center align-items-xl-start" style="padding: 22px;">
-                        <div>
-                            <h5 class="d-xl-flex justify-content-xl-start" style="font-weight: bold;">Apellido</h5>
-                        </div>
-                        <div>
-                            <input type="text" style="border-radius: 10px; padding: 8px 2px;" name="Lastname" pattern="[a-zA-Z'-'\s]*" asp-for="LastName" value ="@ViewData["LastName"]">
+                            <div class="input-group mb-3" style="width: 100%;">
+                                <select name="ID_Course" id="ID_Course"  class="input-group-text" style="height: 40px; border-top-left-radius: 10px; border-bottom-left-radius: 10px;" >
+                                        @foreach(DataRow row in tblCourse.Rows)
+                                        {
+                                            <option value=@row[0]>@row[1] - @row[2]</option>
+                                        }
+                                </select>
+                            </div>
                         </div>
                     </div>
-                    <div class="d-xl-flex flex-column justify-content-xl-center align-items-xl-start" style="padding: 22px;">
+                    <div class="d-xl-flex flex-column justify-content-xl-center align-items-xl-start" style="padding: 22px; margin-bottom: -31px;">
                         <div>
-                            <h5 class="d-xl-flex justify-content-xl-start" style="font-weight: bold;">Contraseña</h5>
+                            <h5 class="d-xl-flex justify-content-xl-start" style="font-weight: bold;" >Profesor</h5>
                         </div>
                         <div>
-                            <input type="text" style="border-radius: 10px; padding: 8px 2px;" name="password" pattern="[a-zA-Z]{1-9}" asp-for="Password" value="@ViewData["Password"]">
+                            <div class="input-group mb-3" style="width: 100%;">
+                                <select name="ID_Teacher" id="ID_Teacher"  class="input-group-text" style="height: 40px; border-top-left-radius: 10px; border-bottom-left-radius: 10px;" >
+                                   @foreach(DataRow row in tblTeacher.Rows)
+                                   {
+                                        <option value=@row[0]>@row[1] - @row[2]</option>
+                                   }
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>

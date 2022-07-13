@@ -1,6 +1,8 @@
 ﻿@page
 @model CIAcademicApp.Pages.AsignaturasEstudianteModel
+@using System.Data;
 @{
+    DataTable MyCourses = (DataTable)ViewData["TblMyCourses"];
 }
 <!DOCTYPE html>
 <html lang="en" style="font-family: Nunito, sans-serif;">
@@ -67,38 +69,31 @@
 </nav>
     <div class="container margin-container">
         <div class="row" style="margin-top: 0px;">
-            <div class="col-md-6">
+            @for(int i = 0; i<MyCourses.Rows.Count; i++)
+            {
+                <div class="col-md-6">
                 <div class="align-items-lg-center div-brackgrround mb-3" style="border-radius: 27px;padding: 42px;">
-                    <div class="d-xl-flex justify-content-xl-center"><img class="img-fluid d-xl-flex" src="/assets/img/Rectangle%2010.png?h=5e92c767d62942d762211e36ad40b859" style="border-radius: 34px;border: 12px dotted rgb(248,149,0) ;"></div>
+                    <div class="d-xl-flex justify-content-xl-center"><img class="img-fluid d-xl-flex" src="/assets/img/Clase.png" style="border-radius: 34px;border: 12px dotted rgb(248,149,0) ;"></div>
                     <div class="align-items-center">
-                        <p class="d-flex justify-content-center asignatura-parrafo">Biología</p><a class="d-flex d-md-flex justify-content-center align-items-center justify-content-md-center asignatura-parrafo" style="text-decoration: underline;color: rgb(100,112,123);" href="InformacionDocenteEstudiante">Docente@icademic.com</a>
+                        <p class="d-flex justify-content-center asignatura-parrafo">@MyCourses.Rows[i][0]</p><div class="d-flex d-md-flex justify-content-center align-items-center justify-content-md-center asignatura-parrafo" style="text-decoration: underline;color: rgb(100,112,123);">@MyCourses.Rows[i][1]</div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="align-items-lg-center div-brackgrround mb-3" style="border-radius: 27px;padding: 42px;">
-                    <div class="d-xl-flex justify-content-xl-center"><img class="img-fluid d-xl-flex" src="/assets/img/Rectangle%2012.png?h=b63a1cbe3730f1525fa0c8cbac10ad84" style="border-radius: 34px;border: 12px dotted rgb(248,149,0) ;"></div>
-                    <div class="align-items-center">
-                        <p class="d-flex justify-content-center asignatura-parrafo">Biología</p><a class="d-flex d-md-flex justify-content-center align-items-center justify-content-md-center asignatura-parrafo" style="text-decoration: underline;color: rgb(100,112,123);" href="InformacionDocenteEstudiante">Docente@icademic.com</a>
+            }
+            @if(MyCourses.Rows.Count == 0)
+            {
+                <section class="profile">
+                    <div class="d-flex flex-column flex-grow-1 justify-content-around flex-sm-column align-items-sm-center flex-md-row flex-lg-row flex-xl-row flex-xxl-row background-div" style="background: #ffffff;font-family: Nunito, sans-serif;font-size: 27px;font-weight: bold;padding-bottom: 17px;">
+                    
+                        <div class="d-flex d-sm-flex justify-content-center align-items-center">
+                            <div>
+                                <p>No hay cursos en progreso</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="align-items-lg-center div-brackgrround mb-3" style="border-radius: 27px;padding: 42px;">
-                    <div class="d-xl-flex justify-content-xl-center"><img class="img-fluid d-xl-flex" src="/assets/img/Rectangle%207.png?h=cb0a3a54a8ee883dfd969abd94065064" style="border-radius: 34px;border: 12px dotted rgb(248,149,0) ;"></div>
-                    <div class="align-items-center">
-                        <p class="d-flex justify-content-center asignatura-parrafo">Biología</p><a class="d-flex d-md-flex justify-content-center align-items-center justify-content-md-center asignatura-parrafo" style="text-decoration: underline;color: rgb(100,112,123);" href="InformacionDocenteEstudiante">Docente@icademic.com</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="align-items-lg-center div-brackgrround mb-3" style="border-radius: 27px;padding: 42px;">
-                    <div class="d-xl-flex justify-content-xl-center"><img class="img-fluid d-xl-flex" src="/assets/img/Rectangle%208.png?h=2b516966ceb0d578de1ef6f8572a82cf" style="border-radius: 34px;border: 12px dotted rgb(248,149,0) ;"></div>
-                    <div class="align-items-center">
-                        <p class="d-flex justify-content-center asignatura-parrafo">Biología</p><a class="d-flex d-md-flex justify-content-center align-items-center justify-content-md-center asignatura-parrafo" style="text-decoration: underline;color: rgb(100,112,123);" href="InformacionDocenteEstudiante">Docente@icademic.com</a>
-                    </div>
-                </div>
-            </div>
+                 </section>
+            }
+             
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

@@ -66,7 +66,7 @@
 </nav>
 <section class="profile">
     <div>
-        <h1 data-aos="fade-right" data-aos-duration="1700" class="profile" style="font-family: Nunito, sans-serif; padding-top: 10rem; padding-left: 6rem; padding-bottom: 1.3rem;">Hola, Usuario!</h1>
+        <h1 data-aos="fade-right" data-aos-duration="1700" class="profile" style="font-family: Nunito, sans-serif; padding-top: 10rem; padding-left: 6rem; padding-bottom: 1.3rem;">Hola, @ViewData["Name"]!</h1>
     </div>
     <div class="container">
         <div class="row d-flex d-md-flex flex-column flex-lg-row">
@@ -75,7 +75,7 @@
                     <div class="border-secondary d-inline-flex flex-column flex-grow-1 justify-content-center align-items-sm-center justify-content-xl-center align-items-xl-center">
                         <img class="rounded-circle img-fluid flex-grow-0 flex-shrink-1 justify-content-xl-center align-items-xl-center" src="/assets/img/Ellipse%201.png?h=825e917fe22374e683fecb454aace9d0">
                         <div class="text-center id-div">
-                            <p class="text-center" style="font-family: Nunito, sans-serif; font-weight: bold; font-size: 30px;">1101817</p>
+                            <p class="text-center" style="font-family: Nunito, sans-serif; font-weight: bold; font-size: 30px;">@ViewData["ID"]</p>
                         </div>
                     </div>
                 </div>
@@ -85,10 +85,11 @@
                     <h1 class="d-flex d-lg-flex justify-content-center" style="margin-top: 41px;">Progress Bar</h1>
                 </div>
                 <div class="indice-general">
-                    <p class="d-flex justify-content-center" style="color: black; font-family: Nunito, sans-serif; font-weight: bold;">Índice General de 4</p>
+                    <p class="d-flex justify-content-center" style="color: black; font-family: Nunito, sans-serif; font-weight: bold;">Índice General de @ViewData["GeneralIndex"]</p>
                 </div>
                 <div class="d-sm-flex flex-grow-1 justify-content-sm-center align-items-sm-center">
-                    <p class="text-center credits p-3" style="background: #39C4B6; font-family: Nunito, sans-serif; font-weight: bold; color: white; width: auto;">140 créditos de 279</p>
+                    <p class="text-center credits p-3" style="background: #39C4B6; font-family: Nunito, sans-serif; font-weight: bold; color: white; width: auto;">Creditos Cursados: @ViewData["TotalCredits"]</p>
+                     <p class="text-center credits p-3" style="background: #39C4B6; font-family: Nunito, sans-serif; font-weight: bold; color: white; width: auto;">Creditos Cursados: @ViewData["TotalPoints"]</p>
                 </div>
             </div>
         </div>

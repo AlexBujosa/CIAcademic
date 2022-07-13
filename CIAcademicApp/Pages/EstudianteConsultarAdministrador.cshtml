@@ -37,6 +37,8 @@
                 <li class="nav-item dropdown">
                     <a class="dropdown-toggle nav-link course-pointer" aria-expanded="false" data-bs-toggle="dropdown" href="#">Perfil</a>
                     <div class="dropdown-menu">
+                        <a class="dropdown-item" href="CrearSeccion"><i class="far fa-user-circle icon-margin"></i>Secciones</a>
+                        <a class="dropdown-item" href="CrearAsignatura"><i class="far fa-user-circle icon-margin"></i>Asignaturas</a>
                         <a class="dropdown-item" href="Index"><i class="far fa-user-circle icon-margin"></i>Cerrar Sesion</a>
                     </div>
                 </li>
@@ -62,10 +64,9 @@
             </div>
             <div class="col d-lg-flex justify-content-lg-center align-items-lg-center">
                 <div class="text-center align-content-end id-div">
-                    <p class="text-center" style="font-family: Nunito, sans-serif; font-weight: bold; font-size: 30px;">Laura Pérez&nbsp;</p>
-                    <p class="text-center" style="font-family: Nunito, sans-serif; font-size: 30px;">1101817</p>
-                    <p class="text-center" style="font-family: Nunito, sans-serif; font-size: 30px;">laurap@ciacademic.com</p>
-                    <p class="text-center" style="font-family: Nunito, sans-serif; font-size: 30px; margin-bottom: 33px;">Contraseña: laurap123</p>
+                    <p class="text-center" style="font-family: Nunito, sans-serif; font-weight: bold; font-size: 30px;">@ViewData["Name"] @ViewData["LastName"]</p>
+                    <p class="text-center" style="font-family: Nunito, sans-serif; font-size: 30px;">@ViewData["ID"]</p>
+                    <p class="text-center" style="font-family: Nunito, sans-serif; font-size: 30px;">@ViewData["Email"]</p>
                 </div>
             </div>
         </div>
@@ -77,15 +78,18 @@
                 <div class="indice-general"></div>
                 <div class="d-flex d-sm-flex flex-column flex-grow-1 align-items-center justify-content-sm-center align-items-sm-center">
                     <div style="width: 60%;">
-                        <p class="text-center credits p-3" style="background: #39C4B6; font-family: Nunito, sans-serif; font-weight: bold; color: white; width: 100%; margin-top: 22px;">3.86 GPA</p>
-                        <p class="text-center credits p-3" style="background: #39C4B6; font-family: Nunito, sans-serif; font-weight: bold; color: white; width: 100%;">140 créditos de 279</p>
-                        <p class="text-center credits p-3" style="background: #39C4B6; font-family: Nunito, sans-serif; font-weight: bold; color: white; width: 100%;">7 Asignaturas</p>
-                        <p class="text-center credits p-3" style="background: #39C4B6; font-family: Nunito, sans-serif; font-weight: bold; color: white; width: 100%;">19 Créditos&nbsp;</p>
+                        <p class="text-center credits p-3" style="background: #39C4B6; font-family: Nunito, sans-serif; font-weight: bold; color: white; width: 100%; margin-top: 22px;">@ViewData["Index"] GPA</p>
+                        <p class="text-center credits p-3" style="background: #39C4B6; font-family: Nunito, sans-serif; font-weight: bold; color: white; width: 100%;">Credito Cursado @ViewData["A_Credit"]</p>
+                        <p class="text-center credits p-3" style="background: #39C4B6; font-family: Nunito, sans-serif; font-weight: bold; color: white; width: 100%;">Puntos @ViewData["A_Points"]</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-6 col-lg-4 col-xl-3 offset-md-3 offset-lg-1 offset-xl-2 d-flex flex-column justify-content-lg-center" style="margin-top: 27px;">
-                <button onclick="    window.location.href = 'EditarUsuarioAdministrador';"class="btn btn-primary btn-project" type="button" style="background: #FF9F1C; font-family: Nunito, sans-serif; color: rgb(255, 255, 255); font-size: 27px; border-radius: 14px; padding: 8px 40px; padding-left: 40px; margin-left: 0px; margin-bottom: 57px; margin-top: 0px; width: 100%;">Editar</button><button class="btn btn-primary btn-project" type="button" style="background: #FF9F1C; font-family: Nunito, sans-serif; padding: 8px 40px; color: rgb(255, 255, 255); font-size: 27px; margin-left: 0px; height: auto; border-radius: 14px; margin-bottom: 29px; width: 100%;">Eliminar</button>
+              <a asp-page ="EditarUsuarioAdministrador" asp-route-id="@ViewData["ID"]"  class="btn btn-primary btn-project"  style="background: #FF9F1C; font-family: Nunito, sans-serif; color: rgb(255, 255, 255); font-size: 27px; border-radius: 14px; padding: 8px 40px; padding-left: 40px; margin-left: 0px; margin-bottom: 57px; margin-top: 0px; width: 100%;">Editar</a>
+                <form method="post">
+                    <input type="hidden" name="ID" value="@ViewData["ID"]" asp-for="Id" style="visibility:hidden;" />
+                     <button class="btn btn-primary btn-project" type="submit" style="background: #FF9F1C; font-family: Nunito, sans-serif; padding: 8px 40px; color: rgb(255, 255, 255); font-size: 27px; margin-left: 0px; height: auto; border-radius: 14px; margin-bottom: 29px; width: 100%;">Eliminar</button>
+                </form>
             </div>
         </div>
     </div>

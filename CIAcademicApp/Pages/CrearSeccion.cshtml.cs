@@ -1,19 +1,14 @@
 using CIAcademicApp.BusinessLayer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.ComponentModel.DataAnnotations;
 using System.Data;
 
 namespace CIAcademicApp.Pages
 {
-    public class SeleccionarAsignaturaModel : PageModel
+    public class CrearSeccionModel : PageModel
     {
         public const string SessionKeyName = "_Name";
-        public const string SessionKeyID = "_ID";
-        public static List<int> SeccionesId { get; set; }
         public static DataTable DataTable { get; set; }
-        public static DataTable MisSecciones { get; set; }
-
         public static bool value = false;
         public void ObtenerSecciones()
         {
@@ -21,19 +16,16 @@ namespace CIAcademicApp.Pages
             DataSet set = user.ObtenerSecciones();
             DataTable = set.Tables[0];
         }
-        public void ObtenerMisSecciones()
+        public async void CheckTimeOut()
         {
-            Student student = new Student();
-            int id = int.Parse(HttpContext.Session.GetInt32(SessionKeyID).ToString());
-            DataSet set = student.MisSecciones(id);
-            MisSecciones = set.Tables[0];
-            SeccionesId = new List<int>();
-            for(int i = 0; i<MisSecciones.Rows.Count; i++)
+            if (!value)
             {
-                SeccionesId.Add(int.Parse(MisSecciones.Rows[i][0].ToString()));
+                ObtenerSecciones();
+                value = true;
+                value = await AsyncTime();
+                CheckTimeOut();
             }
         }
-       
         public void ObtenerSeccionesFiltradas(string codigo)
         {
             if (codigo == null)
@@ -43,15 +35,14 @@ namespace CIAcademicApp.Pages
                 ViewData["Secciones"] = DataTable.AsEnumerable()
                                .Where(row => row.Field<string>("Name_Course")
                                .ToString().ToLower()
-                               .Contains(codigo.ToLower()) || row.Field<string>("Name_Person").ToString().ToLower().Contains(codigo.ToLower())
-                               || row.Field<string>("LastName_Person").ToString().ToLower().Contains(codigo.ToLower())).CopyToDataTable();
+                               .Contains(codigo.ToLower()) || row.Field<string>("Name_Person").ToString().ToLower().Contains(codigo.ToLower())).CopyToDataTable();
             }
             catch
             {
-                DataTable table = new DataTable();
+                DataTable table  = new DataTable();
                 ViewData["Secciones"] = table;
             }
-
+           
         }
         public void OnGet()
         {
@@ -59,9 +50,7 @@ namespace CIAcademicApp.Pages
             {
                 Response.Redirect("Index");
             }
-            ObtenerSecciones();
-            ObtenerMisSecciones();
-            ViewData["MisSecciones"] = SeccionesId ;
+            CheckTimeOut();
             ViewData["Secciones"] = DataTable;
             ViewData["Iteracion"] = 1;
             ViewData["Search"] = "";
@@ -75,7 +64,6 @@ namespace CIAcademicApp.Pages
                 ObtenerSeccionesFiltradas(search);
             ViewData["Iteracion"] = iter + 1;
             ViewData["Search"] = search;
-            ViewData["MisSecciones"] = SeccionesId;
         }
         public void OnPostChangeMinus(int iter, string search)
         {
@@ -85,32 +73,21 @@ namespace CIAcademicApp.Pages
                 ObtenerSeccionesFiltradas(search);
             ViewData["Iteracion"] = iter - 1;
             ViewData["Search"] = search;
-            ViewData["MisSecciones"] = SeccionesId;
         }
         public void OnPostFilter(string search)
         {
             ObtenerSeccionesFiltradas(search);
             ViewData["Search"] = search;
             ViewData["Iteracion"] = 1;
-            ViewData["MisSecciones"] = SeccionesId;
         }
-        public void OnPostAddSection(int Seccion)
+        public static Task<bool> AsyncTime()
         {
-            int id = int.Parse(HttpContext.Session.GetInt32(SessionKeyID).ToString());
-            Student student = new Student();
-            int resp = student.AgregarSeccion(Seccion, id);
-            ObtenerSecciones();
-            ObtenerMisSecciones();
-            if (resp == 1)
+            return Task.Run(() =>
             {
-                ViewData["Message"] = "ha agregado la seccion con id " + Seccion;
-            }
-            ViewData["Search"] = "";
-            ViewData["Iteracion"] = 1;
-            ViewData["MisSecciones"] = SeccionesId;
-            ViewData["Secciones"] = DataTable;
+                Thread.Sleep(10000);
+                return false;
 
+            });
         }
-       
     }
 }

@@ -1,6 +1,12 @@
 ﻿@page
 @model CIAcademicApp.Pages.CrearDocenteModel
+@using System.Data
 @{
+     var Profesores= (DataTable)ViewData["Profesores"];
+    int Cantidad = (Profesores.Rows.Count % 5 > 0) ? (Profesores.Rows.Count / 5 + 1) : (Profesores.Rows.Count / 5);
+    int iteracion = (int)ViewData["Iteracion"];
+    int ite = iteracion - 1;
+    string Search = (string)ViewData["Search"];
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -37,6 +43,8 @@
                 <li class="nav-item dropdown">
                     <a class="dropdown-toggle nav-link  course-pointer" aria-expanded="false" data-bs-toggle="dropdown" href="#">Perfil</a>
                     <div class="dropdown-menu">
+                        <a class="dropdown-item" href="CrearSeccion"><i class="far fa-user-circle icon-margin"></i>Secciones</a>
+                        <a class="dropdown-item" href="CrearAsignatura"><i class="far fa-user-circle icon-margin"></i>Asignaturas</a>
                         <a class="dropdown-item" href="Index"><i class="far fa-user-circle icon-margin"></i>Cerrar Sesion</a>
                     </div>
                 </li>
@@ -48,51 +56,66 @@
     </div>
 </nav>
 <section class="profile">
-    <h1 class="d-flex justify-content-center margin-heading" data-aos="fade-down" style="padding-bottom: 66px; font-family: Nunito, sans-serif; text-align: center;">Crear Docente</h1>
+    <h1 class="d-flex justify-content-center margin-heading" data-aos="fade-down" style="padding-bottom: 66px; font-family: Nunito, sans-serif; text-align: center;">Crear Estudiante</h1>
     <div class="col-md-10 offset-md-1" style="margin: 0px; margin-bottom: 28px; width: 100%;">
         <div class="card m-auto" style="max-width: 850px; border-radius: 21px; border: 3px solid rgb(0, 4, 7); width: 100%;">
             <div class="card-body flex-grow-0" style="width: 100%;">
-                <form class="d-flex align-items-center">
-                    <i class="fas fa-search d-none d-sm-block h4 text-body m-0"></i><input class="form-control form-control-lg flex-shrink-1 form-control-borderless" type="search" placeholder="Buscar ID" name="search"><button class="btn btn-success btn-lg" type="submit" style="background: #FF9F1C; font-weight: bold; border-radius: 12px; color: rgb(0, 0, 0);">Buscar</button>
+                <form class="d-flex align-items-center" method="post">
+                    <i class="fas fa-search d-none d-sm-block h4 text-body m-0"></i><input class="form-control form-control-lg flex-shrink-1 form-control-borderless" type="search" placeholder="Buscar ID" name="search" value="@Search"><button class="btn btn-success btn-lg" asp-page-handler="Filter" type="submit" style="background: #FF9F1C; font-weight: bold; border-radius: 12px; color: rgb(0, 0, 0);">Buscar</button>
                 </form>
             </div>
         </div>
     </div>
     <div class="container padding-container" style="background: #CBF3F0; padding-bottom: 41px;">
         <section class="flex-column justify-content-center align-items-center" style="background: white; padding: 20px; border-radius: 15px; width: auto; height: auto;">
-            <div class="d-flex d-sm-flex d-md-flex d-lg-flex d-xl-flex d-xxl-flex flex-column justify-content-center align-items-center flex-md-row background-div" style="background: #ffffff; font-family: Nunito, sans-serif; font-size: 27px; font-weight: bold; padding-bottom: 17px; width: 100%;">
-                <p class="d-flex flex-grow-1 justify-content-center align-items-center justify-content-sm-center justify-content-lg-center align-items-lg-center" style="font-family: Nunito, sans-serif; text-align: center; width: 100%; height: auto; font-size: 26px;">Pedro - 1098274</p>
-                <div class="d-flex d-md-flex justify-content-center" style="background: rgba(255, 159, 28, 0); width: 100%; height: auto;">
-                    <button   onclick="window.location.href = 'ConsultarDocenteAdministrador';" class="btn btn-primary btn-project" type="button" style="background: #FF9F1C; font-family: Nunito, sans-serif; padding: 8px 40px; color: rgb(0, 0, 0); font-size: 20px; margin-left: 0px; height: auto; border-radius: 14px;">Consultar</button>
-                </div>
-            </div>
-            <div class="d-flex d-sm-flex d-md-flex d-lg-flex d-xl-flex d-xxl-flex flex-column justify-content-center align-items-center flex-md-row background-div" style="background: #ffffff; font-family: Nunito, sans-serif; font-size: 27px; font-weight: bold; padding-bottom: 17px; width: 100%;">
-                <p class="d-flex flex-grow-1 justify-content-center align-items-center justify-content-sm-center justify-content-lg-center align-items-lg-center" style="font-family: Nunito, sans-serif; text-align: center; width: 100%; height: auto; font-size: 26px;">Maria - 1895784</p>
-                <div class="d-flex d-md-flex justify-content-center" style="background: rgba(255, 159, 28, 0); width: 100%; height: auto;">
-                    <button  onclick="window.location.href = 'ConsultarDocenteAdministrador';" class="btn btn-primary btn-project" type="button" style="background: #FF9F1C; font-family: Nunito, sans-serif; padding: 8px 40px; color: rgb(0, 0, 0); font-size: 20px; margin-left: 0px; height: auto; border-radius: 14px;">
-                        <strong>Consultar</strong><br>
-                    </button>
-                </div>
-            </div>
-            <div class="d-flex d-sm-flex d-md-flex d-lg-flex d-xl-flex d-xxl-flex flex-column justify-content-center align-items-center flex-md-row background-div" style="background: #ffffff; font-family: Nunito, sans-serif; font-size: 27px; font-weight: bold; padding-bottom: 17px; width: 100%;">
-                <p class="d-flex flex-grow-1 justify-content-center align-items-center justify-content-sm-center justify-content-lg-center align-items-lg-center" style="font-family: Nunito, sans-serif; text-align: center; width: 100%; height: auto; font-size: 26px;">Asignatura 2</p>
-                <div class="d-flex d-md-flex justify-content-center" style="background: rgba(255, 159, 28, 0); width: 100%; height: auto;">
-                    <button onclick="window.location.href = 'ConsultarDocenteAdministrador';" class="btn btn-primary btn-project" type="button" style="background: #FF9F1C; font-family: Nunito, sans-serif; padding: 8px 40px; color: rgb(0, 0, 0); font-size: 20px; margin-left: 0px; height: auto; border-radius: 14px;">
-                        <strong>Consultar</strong><br>
-                    </button>
-                </div>
-            </div>
-            <div class="d-flex d-sm-flex d-md-flex d-lg-flex d-xl-flex d-xxl-flex flex-column justify-content-center align-items-center flex-md-row background-div" style="background: #ffffff; font-family: Nunito, sans-serif; font-size: 27px; font-weight: bold; padding-bottom: 17px; width: 100%;">
-                <p class="d-flex flex-grow-1 justify-content-center align-items-center justify-content-sm-center justify-content-lg-center align-items-lg-center" style="font-family: Nunito, sans-serif; text-align: center; width: 100%; height: auto; font-size: 26px;">Asignatura 2</p>
-                <div class="d-flex d-md-flex justify-content-center" style="background: rgba(255, 159, 28, 0); width: 100%; height: auto;">
-                    <button  onclick="window.location.href = 'ConsultarDocenteAdministrador';" class="btn btn-primary btn-project" type="button" style="background: #FF9F1C; font-family: Nunito, sans-serif; padding: 8px 40px; color: rgb(0, 0, 0); font-size: 20px; margin-left: 0px; height: auto; border-radius: 14px;">
-                        <strong>Consultar</strong><br>
-                    </button>
-                </div>
-            </div>
-        </section>
+                @for(int i = ite * 5; i<Profesores.Rows.Count; i++)
+                {
+                    @if(i < iteracion *5)
+                    {
+                         <div class="d-flex d-sm-flex d-md-flex d-lg-flex d-xl-flex d-xxl-flex flex-column justify-content-center align-items-center flex-md-row background-div" style="background: #ffffff; font-family: Nunito, sans-serif; font-size: 27px; font-weight: bold; padding-bottom: 17px; width: 100%;">
+                            <p class="d-flex flex-grow-1 justify-content-center align-items-center justify-content-sm-center justify-content-lg-center align-items-lg-center" style="font-family: Nunito, sans-serif; text-align: center; width: 100%; height: auto; font-size: 26px;">
+                                @Profesores.Rows[i][1] @Profesores.Rows[i][2] 
+                            </p>
+                            <div class="d-flex d-md-flex justify-content-center" style="background: rgba(255, 159, 28, 0); width: 100%; height: auto;">
+                                <a asp-page ="ConsultarDocenteAdministrador" asp-route-id="@Profesores.Rows[i][0]" class="btn btn-primary btn-project" type="button" style="background: #FF9F1C; font-family: Nunito, sans-serif; padding: 8px 40px; color: rgb(0, 0, 0); font-size: 20px; margin-left: 0px; height: auto; border-radius: 14px;">
+                                    <strong>Consultar</strong><br>
+                                </a>
+                            </div>
+                        </div>
+
+                    }
+                    @if(i == iteracion * 5 && iteracion < Cantidad)
+                    {
+                       <form  data-aos="fade-left" data-aos-duration="1850"  method="post" align="right">
+                            <input type="hidden" value="@iteracion" name="iter"/>
+                            <input type="hidden" name="search" value="@Search" />
+                            <input type="submit" class="btn btn-primary btn-project" asp-page-handler="Change" value="Siguiente" style="background: #CBF3F0; border-radius: 26px; padding-bottom: 0px; color:black"/>
+                        </form>
+                    }
+                }
+                @if(iteracion > 1)
+                {
+                    <br />
+                     <form  data-aos="fade-right" data-aos-duration="1850"  method="post" align="right">
+                           <input type="hidden" value="@iteracion" name="iter"/>
+                           <input type="hidden" name="search" value="@Search" />
+                           <input type="submit" class="btn btn-primary btn-project" asp-page-handler="ChangeMinus" value="Anterior" style="background: #CBF3F0; border-radius: 26px; padding-bottom: 0px; color:black"/>
+                     </form>
+                     
+               }
+
+                @if(Profesores.Rows.Count == 0)
+                {
+                    <div class="d-flex d-sm-flex d-md-flex d-lg-flex d-xl-flex d-xxl-flex flex-column justify-content-center align-items-center flex-md-row background-div" style="background: #ffffff; font-family: Nunito, sans-serif; font-size: 27px; font-weight: bold; padding-bottom: 17px; width: 100%;">
+                        <p class="d-flex flex-grow-1 justify-content-center align-items-center justify-content-sm-center justify-content-lg-center align-items-lg-center" style="font-family: Nunito, sans-serif; text-align: center; width: 100%; height: auto; font-size: 26px;">
+                           No hay Profesores actualmente
+                        </p>
+                        
+                    </div>
+                }
+            </section>
         <div class="d-flex d-md-flex justify-content-center" style="background: rgba(255, 159, 28, 0); width: 100%; height: auto;">
-            <button  onclick="window.location.href = 'CrearNuevoUsuarioAdministrador';" class="btn btn-primary btn-project" type="button" style="background: #FF9F1C; font-family: Nunito, sans-serif; padding: 8px 40px; color: rgb(0, 0, 0); font-size: 20px; margin-left: 0px; height: auto; border-radius: 14px; margin-top: 31px;">Insertar Docente</button>
+            <button  onclick="window.location.href = 'CrearNuevoUsuarioAdministrador';" class="btn btn-primary btn-project" type="button" style="background: #FF9F1C; font-family: Nunito, sans-serif; padding: 8px 40px; color: rgb(0, 0, 0); font-size: 20px; margin-left: 0px; height: auto; border-radius: 14px; margin-top: 31px;">Insertar Profesor</button>
         </div>
     </div>
 </section>

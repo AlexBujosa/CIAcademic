@@ -1,5 +1,5 @@
 ﻿@page
-@model CIAcademicApp.Pages.ConsultarDocenteAdministradorModel
+@model CIAcademicApp.Pages.ConsultarAsignaturaAdministradorModel
 @{
 }
 <!DOCTYPE html>
@@ -35,10 +35,10 @@
         <div class="collapse navbar-collapse" id="navcol-2">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item dropdown">
-                    <a class="dropdown-toggle nav-link  course-pointer" aria-expanded="false" data-bs-toggle="dropdown" href="#">Perfil</a>
+                    <a class="dropdown-toggle nav-link course-pointer" aria-expanded="false" data-bs-toggle="dropdown" href="#">Perfil</a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="CrearSeccion"><i class="far fa-user-circle icon-margin"></i>Secciones</a>
-                        <a class="dropdown-item" href="CrearAsignatura"><i class="far fa-user-circle icon-margin"></i>Asignaturas</a>
+                        <a class="dropdown-item" href="CrearAsignatura"><i class="far fa-user-circle icon-margin"></i>Asignatura</a>
                         <a class="dropdown-item" href="Index"><i class="far fa-user-circle icon-margin"></i>Cerrar Sesion</a>
                     </div>
                 </li>
@@ -51,63 +51,35 @@
 </nav>
 <section class="profile">
     <div>
-        <h1 class="d-flex justify-content-center profile" data-aos="fade-right" data-aos-duration="1700" style="font-family: Nunito, sans-serif; padding-top: 10rem; padding-left: 0rem; padding-bottom: 1.3rem;">Docentes</h1>
+        <h1 class="d-flex justify-content-center profile" data-aos="fade-right" data-aos-duration="1700" style="font-family: Nunito, sans-serif; padding-top: 10rem; padding-left: 0rem; padding-bottom: 1.3rem;">Asignatura</h1>
     </div>
     <div class="container">
         <div class="row d-flex d-md-flex flex-column flex-lg-row">
             <div class="col-md-6 col-lg-6 col-xl-3 offset-md-3 offset-lg-0 offset-xl-2">
                 <div class="d-flex justify-content-lg-center">
                     <div class="border-secondary d-flex flex-column flex-grow-1 justify-content-center align-items-sm-center flex-lg-row justify-content-xl-center align-items-xl-center">
-                        <img class="rounded-circle img-fluid flex-grow-0 flex-shrink-1 justify-content-xl-center align-items-xl-center" src="/assets/img/Ellipse%201%20(3).png?h=ad0e5dc2757019af901df69c97007741">
+                        <img class="rounded-circle img-fluid flex-grow-0 flex-shrink-1 justify-content-xl-center align-items-xl-center" src="/assets/img/Books.jpg">
                     </div>
                 </div>
             </div>
             <div class="col d-lg-flex justify-content-lg-center align-items-lg-center">
                 <div class="text-center align-content-end id-div">
-                    <p class="text-center" style="font-family: Nunito, sans-serif; font-weight: bold; font-size: 30px;">@ViewData["Name"] @ViewData["LastName"]</p>
-                    <p class="text-center" style="font-family: Nunito, sans-serif; font-size: 30px;">@ViewData["ID"]</p>
-                    <p class="text-center" style="font-family: Nunito, sans-serif; font-size: 30px;">@ViewData["Email"]</p>
+                    <p class="text-center" style="font-family: Nunito, sans-serif; font-weight: bold; font-size: 30px;">Codigo: @ViewData["KeyCourse"]</p>
+                    <p class="text-center" style="font-family: Nunito, sans-serif; font-weight: bold;font-size: 30px;">Nombre: @ViewData["NameCourse"]</p>
+                    <p class="text-center" style="font-family: Nunito, sans-serif; font-weight: bold;font-size: 30px;">Credito: @ViewData["Credit"]</p>
                 </div>
             </div>
         </div>
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-8 col-lg-6 col-xl-7 offset-md-2 offset-lg-2 offset-xl-0 flex-column justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center" data-aos="fade-left" data-aos-duration="1850" style="background: #CBF3F0; border-radius: 26px; padding-bottom: 0px; margin: 0px; margin-top: 46px;">
-                <div></div>
-                <div class="indice-general"></div>
-                <div class="d-flex d-sm-flex flex-column flex-grow-1 align-items-center justify-content-sm-center align-items-sm-center">
-                    <div style="width: 60%;">
-                            @if((int)ViewData["Estudiantes"] == 0)
-                            {
-                                <p class="text-center credits p-3" style="background: #39C4B6; font-family: Nunito, sans-serif; font-weight: bold; color: white; width: 100%; margin-top: 22px;">N/A Estudiante</p>
-                            }else if ((int)ViewData["Estudiantes"] == 1){
-                                <p class="text-center credits p-3" style="background: #39C4B6; font-family: Nunito, sans-serif; font-weight: bold; color: white; width: 100%; margin-top: 22px;">@ViewData["Estudiantes"] Estudiante</p>
-                            }
-                            else
-                            {
-                             <p class="text-center credits p-3" style="background: #39C4B6; font-family: Nunito, sans-serif; font-weight: bold; color: white; width: 100%; margin-top: 22px;">@ViewData["Estudiantes"] Estudiantes</p>
-                            }
-                            @if((int)ViewData["Asignaturas"] == 0)
-                            {
-                                <p class="text-center credits p-3" style="background: #39C4B6; font-family: Nunito, sans-serif; font-weight: bold; color: white; width: 100%; margin-top: 22px;">N/A Asignatura</p>
-                            }else if ((int)ViewData["Asignaturas"] == 1){
-                                <p class="text-center credits p-3" style="background: #39C4B6; font-family: Nunito, sans-serif; font-weight: bold; color: white; width: 100%; margin-top: 22px;">@ViewData["Asignaturas"] Asignatura</p>
-                            }
-                            else
-                            {
-                             <p class="text-center credits p-3" style="background: #39C4B6; font-family: Nunito, sans-serif; font-weight: bold; color: white; width: 100%; margin-top: 22px;">@ViewData["Asignaturas"] Asignaturas</p>
-                            }
-                    </div>
-                </div>
-            </div>
             <div class="col-md-6 col-lg-4 col-xl-3 offset-md-3 offset-lg-1 offset-xl-2 d-flex flex-column justify-content-lg-center" style="margin-top: 27px;">
-                <a asp-page ="EditarUsuarioAdministrador" asp-route-id="@ViewData["ID"]"  class="btn btn-primary btn-project"  style="background: #FF9F1C; font-family: Nunito, sans-serif; color: rgb(255, 255, 255); font-size: 27px; border-radius: 14px; padding: 8px 40px; padding-left: 40px; margin-left: 0px; margin-bottom: 57px; margin-top: 0px; width: 100%;">Editar</a>
+                <a asp-page ="EditarAsignaturaAdministrador" asp-route-id="@ViewData["ID"]"  class="btn btn-primary btn-project"  style="background: #FF9F1C; font-family: Nunito, sans-serif; color: rgb(255, 255, 255); font-size: 27px; border-radius: 14px; padding: 8px 40px; padding-left: 40px; margin-left: 0px; margin-bottom: 57px; margin-top: 0px; width: 100%;">Editar</a>
                 <form method="post">
                     <input type="hidden" name="ID" value="@ViewData["ID"]" asp-for="Id" style="visibility:hidden;" />
                      <button class="btn btn-primary btn-project" type="submit" style="background: #FF9F1C; font-family: Nunito, sans-serif; padding: 8px 40px; color: rgb(255, 255, 255); font-size: 27px; margin-left: 0px; height: auto; border-radius: 14px; margin-bottom: 29px; width: 100%;">Eliminar</button>
                 </form>
-            </div>
+                </div>
         </div>
     </div>
 </section>

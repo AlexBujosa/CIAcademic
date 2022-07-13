@@ -1,6 +1,8 @@
 ﻿@page
 @model CIAcademicApp.Pages.HistorialAcademicoModel
+@using System.Data;
 @{
+    DataTable TblHistory = (DataTable)ViewData["TblHistory"];
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -68,58 +70,33 @@
     <h1 class="d-flex justify-content-center margin-heading" data-aos="fade-down" style="padding-bottom: 66px; font-weight: bold; text-align: center;">Historial Academico</h1>
     <div class="container padding-container" style="background: #CBF3F0; padding-bottom: 48px; padding-top: 5px;">
         <section class="section-border" style="background: #ffffff; padding: 37px; margin: 0px; margin-top: 46px;">
-            <div class="d-flex flex-column flex-grow-1 justify-content-around flex-sm-column align-items-sm-center flex-md-row flex-lg-row flex-xl-row flex-xxl-row background-div" style="background: #ffffff; font-family: Nunito, sans-serif; font-size: 27px; font-weight: bold; padding-bottom: 17px;">
-                <div>
-                    <p class="text-center d-flex justify-content-center" style="font-family: Nunito, sans-serif; width: 100%;">Aseguramiento De La Calidad</p>
-                </div>
-                <div class="d-flex d-sm-flex justify-content-center align-items-center">
-                    <div>
-                        <p class="calification-color">B+</p>
+             @for(int i = 0; i<TblHistory.Rows.Count; i++)
+                {
+                      <div class="d-flex flex-column flex-grow-1 justify-content-around flex-sm-column align-items-sm-center flex-md-column flex-lg-row background-div" style="background: #ffffff;font-family: Nunito, sans-serif;font-size: 27px;font-weight: bold;padding-bottom: 17px;">
+                        <div>
+                            <p class="text-center d-flex justify-content-center" style="font-family: Nunito, sans-serif;width: 100%;">@TblHistory.Rows[i][0]</p>
+                        </div>
+                        <div class="d-flex d-sm-flex justify-content-center align-items-center">
+                            <div>
+                                <p class="calification-color">@TblHistory.Rows[i][1]</p>
+                            </div>
+                            <div>
+                                <p class="margin-calification" style="padding: 0px;padding-left: 19px;padding-right: 18px;">@TblHistory.Rows[i][2]%</p>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <p class="margin-calification" style="padding: 0px; padding-left: 19px; padding-right: 18px;">2022</p>
-                    </div>
-                </div>
-            </div>
-            <div class="d-flex flex-column flex-grow-1 justify-content-around flex-sm-column align-items-sm-center flex-md-row flex-lg-row flex-xl-row flex-xxl-row background-div" style="background: #ffffff; font-family: Nunito, sans-serif; font-size: 27px; font-weight: bold; padding-bottom: 17px;">
-                <div>
-                    <p class="text-center d-flex justify-content-center" style="font-family: Nunito, sans-serif; width: 100%;">Aseguramiento De La Calidad</p>
-                </div>
-                <div class="d-flex d-sm-flex justify-content-center align-items-center">
-                    <div>
-                        <p class="calification-color">B+</p>
-                    </div>
-                    <div>
-                        <p class="margin-calification" style="padding: 0px; padding-left: 19px; padding-right: 18px;">2022</p>
-                    </div>
-                </div>
-            </div>
-            <div class="d-flex flex-column flex-grow-1 justify-content-around flex-sm-column align-items-sm-center flex-md-row flex-lg-row flex-xl-row flex-xxl-row background-div" style="background: #ffffff; font-family: Nunito, sans-serif; font-size: 27px; font-weight: bold; padding-bottom: 17px;">
-                <div>
-                    <p class="text-center d-flex justify-content-center" style="font-family: Nunito, sans-serif; width: 100%;">Aseguramiento De La Calidad</p>
-                </div>
-                <div class="d-flex d-sm-flex justify-content-center align-items-center">
-                    <div>
-                        <p class="calification-color">B+</p>
-                    </div>
-                    <div>
-                        <p class="margin-calification" style="padding: 0px; padding-left: 19px; padding-right: 18px;">2022</p>
+                }
+                @if(TblHistory.Rows.Count == 0)
+                {
+                    <div class="d-flex flex-column flex-grow-1 justify-content-around flex-sm-column align-items-sm-center flex-md-row flex-lg-row flex-xl-row flex-xxl-row background-div" style="background: #ffffff;font-family: Nunito, sans-serif;font-size: 27px;font-weight: bold;padding-bottom: 17px;">
+                    
+                    <div class="d-flex d-sm-flex justify-content-center align-items-center">
+                        <div>
+                            <p>No hay historial</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="d-flex flex-column flex-grow-1 justify-content-around flex-sm-column align-items-sm-center flex-md-row flex-lg-row flex-xl-row flex-xxl-row background-div" style="background: #ffffff; font-family: Nunito, sans-serif; font-size: 27px; font-weight: bold; padding-bottom: 17px;">
-                <div>
-                    <p class="text-center d-flex justify-content-center" style="font-family: Nunito, sans-serif; width: 100%;">Aseguramiento De La Calidad</p>
-                </div>
-                <div class="d-flex d-sm-flex justify-content-center align-items-center">
-                    <div>
-                        <p class="calification-color">B+</p>
-                    </div>
-                    <div>
-                        <p class="margin-calification" style="padding: 0px; padding-left: 19px; padding-right: 18px;">2022</p>
-                    </div>
-                </div>
-            </div>
+                }
         </section>
     </div>
 </section>

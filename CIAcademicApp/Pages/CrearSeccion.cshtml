@@ -1,9 +1,9 @@
 ﻿@page
-@model CIAcademicApp.Pages.CrearEstudianteModel
+@model CIAcademicApp.Pages.CrearSeccionModel
 @using System.Data
 @{
-     var Estudiantes = (DataTable)ViewData["Estudiantes"];
-    int Cantidad = (Estudiantes.Rows.Count % 5 > 0) ? (Estudiantes.Rows.Count / 5 + 1) : (Estudiantes.Rows.Count / 5);
+    var Secciones = (DataTable)ViewData["Secciones"];
+    int Cantidad = (Secciones.Rows.Count % 5 > 0) ? (Secciones.Rows.Count / 5 + 1) : (Secciones.Rows.Count / 5);
     int iteracion = (int)ViewData["Iteracion"];
     int ite = iteracion - 1;
     string Search = (string)ViewData["Search"];
@@ -56,7 +56,7 @@
     </div>
 </nav>
 <section class="profile">
-    <h1 class="d-flex justify-content-center margin-heading" data-aos="fade-down" style="padding-bottom: 66px; font-family: Nunito, sans-serif; text-align: center;">Crear Estudiante</h1>
+    <h1 class="d-flex justify-content-center margin-heading" data-aos="fade-down" style="padding-bottom: 66px; font-family: Nunito, sans-serif; text-align: center;">Crear Seccion</h1>
     <div class="col-md-10 offset-md-1" style="margin: 0px; margin-bottom: 28px; width: 100%;">
         <div class="card m-auto" style="max-width: 850px; border-radius: 21px; border: 3px solid rgb(0, 4, 7); width: 100%;">
             <div class="card-body flex-grow-0" style="width: 100%;">
@@ -68,16 +68,16 @@
     </div>
     <div class="container padding-container" style="background: #CBF3F0; padding-bottom: 41px;">
         <section class="flex-column justify-content-center align-items-center" style="background: white; padding: 20px; border-radius: 15px; width: auto; height: auto;">
-                @for(int i = ite * 5; i<Estudiantes.Rows.Count; i++)
+                @for(int i = ite * 5; i<Secciones.Rows.Count; i++)
                 {
                     @if(i < iteracion *5)
                     {
                          <div class="d-flex d-sm-flex d-md-flex d-lg-flex d-xl-flex d-xxl-flex flex-column justify-content-center align-items-center flex-md-row background-div" style="background: #ffffff; font-family: Nunito, sans-serif; font-size: 27px; font-weight: bold; padding-bottom: 17px; width: 100%;">
                             <p class="d-flex flex-grow-1 justify-content-center align-items-center justify-content-sm-center justify-content-lg-center align-items-lg-center" style="font-family: Nunito, sans-serif; text-align: center; width: 100%; height: auto; font-size: 26px;">
-                                @Estudiantes.Rows[i][1] @Estudiantes.Rows[i][2] 
+                                @Secciones.Rows[i][1] @Secciones.Rows[i][2] - @Secciones.Rows[i][4]
                             </p>
                             <div class="d-flex d-md-flex justify-content-center" style="background: rgba(255, 159, 28, 0); width: 100%; height: auto;">
-                                <a asp-page ="EstudianteConsultarAdministrador" asp-route-id="@Estudiantes.Rows[i][0]" class="btn btn-primary btn-project" type="button" style="background: #FF9F1C; font-family: Nunito, sans-serif; padding: 8px 40px; color: rgb(0, 0, 0); font-size: 20px; margin-left: 0px; height: auto; border-radius: 14px;">
+                                <a asp-page ="ConsultarSeccionAdministrador" asp-route-id="@Secciones.Rows[i][0]" class="btn btn-primary btn-project" type="button" style="background: #FF9F1C; font-family: Nunito, sans-serif; padding: 8px 40px; color: rgb(0, 0, 0); font-size: 20px; margin-left: 0px; height: auto; border-radius: 14px;">
                                     <strong>Consultar</strong><br>
                                 </a>
                             </div>
@@ -104,18 +104,18 @@
                      
                }
 
-                @if(Estudiantes.Rows.Count == 0)
+                @if(Secciones.Rows.Count == 0)
                 {
                     <div class="d-flex d-sm-flex d-md-flex d-lg-flex d-xl-flex d-xxl-flex flex-column justify-content-center align-items-center flex-md-row background-div" style="background: #ffffff; font-family: Nunito, sans-serif; font-size: 27px; font-weight: bold; padding-bottom: 17px; width: 100%;">
                         <p class="d-flex flex-grow-1 justify-content-center align-items-center justify-content-sm-center justify-content-lg-center align-items-lg-center" style="font-family: Nunito, sans-serif; text-align: center; width: 100%; height: auto; font-size: 26px;">
-                           No hay Estudiantes actualmente
+                           No hay secciones actualmente
                         </p>
                         
                     </div>
                 }
             </section>
         <div class="d-flex d-md-flex justify-content-center" style="background: rgba(255, 159, 28, 0); width: 100%; height: auto;">
-            <button  onclick="window.location.href = 'CrearNuevoUsuarioAdministrador';" class="btn btn-primary btn-project" type="button" style="background: #FF9F1C; font-family: Nunito, sans-serif; padding: 8px 40px; color: rgb(0, 0, 0); font-size: 20px; margin-left: 0px; height: auto; border-radius: 14px; margin-top: 31px;">Insertar Estudiante</button>
+            <button onclick = "window.location.href = 'CrearNuevaSeccion';" class="btn btn-primary btn-project" type="button" style="background: #FF9F1C; font-family: Nunito, sans-serif; padding: 8px 40px; color: rgb(0, 0, 0); font-size: 20px; margin-left: 0px; height: auto; border-radius: 14px; margin-top: 31px;">Crear Seccion</button>
         </div>
     </div>
 </section>

@@ -5,8 +5,13 @@ namespace CIAcademicApp.Pages
 {
     public class EliminarUsuarioAdministradorModel : PageModel
     {
+        public const string SessionKeyName = "_Name";
         public void OnGet()
         {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString(SessionKeyName)))
+            {
+                Response.Redirect("Index");
+            }
         }
     }
 }

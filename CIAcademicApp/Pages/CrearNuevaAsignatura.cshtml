@@ -1,7 +1,6 @@
 ﻿@page
-@model CrearNuevoUsuarioAdministradorModel
+@model CIAcademicApp.Pages.CrearNuevaAsignaturaModel
 @{
-    
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -38,8 +37,7 @@
                 <li class="nav-item dropdown">
                     <a class="dropdown-toggle nav-link  course-pointer" aria-expanded="false" data-bs-toggle="dropdown" href="#">Perfil</a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="CrearSeccion"><i class="far fa-user-circle icon-margin"></i>Secciones</a>
-                        <a class="dropdown-item" href="CrearAsignatura"><i class="far fa-user-circle icon-margin"></i>Asignaturas</a>
+                        <a class="dropdown-item" href="CrearAsignatura"><i class="far fa-user-circle icon-margin"></i>Asignatura</a>
                         <a class="dropdown-item" href="Index"><i class="far fa-user-circle icon-margin"></i>Cerrar Sesion</a>
                     </div>
                 </li>
@@ -61,71 +59,35 @@
                 <div class="d-flex flex-column justify-content-center align-items-center">
                     <div class="d-xl-flex flex-column justify-content-xl-center align-items-xl-start" style="padding: 22px;">
                         <div>
-                            <h5 class="d-xl-flex justify-content-xl-start" style="font-weight: bold;">Nombre</h5>
+                            <h5 class="d-xl-flex justify-content-xl-start" style="font-weight: bold;">Codigo Asignatura</h5>
                         </div>
                         <div>
-                            <input type="text" style="border-radius: 10px; padding: 8px 2px;" name="Name" pattern="[a-zA-Z'-'\s]*" asp-for="Name">
+                            <input type="text" style="border-radius: 10px; padding: 8px 2px;" name="CodigoAsignatura" pattern="^[A-Za-z0-9]*$" asp-for="CodigoAsignatura">
                         </div>
                     </div>
                     <div class="d-xl-flex flex-column justify-content-xl-center align-items-xl-start" style="padding: 22px;">
                         <div>
-                            <h5 class="d-xl-flex justify-content-xl-start" style="font-weight: bold;">Correo</h5>
+                            <h5 class="d-xl-flex justify-content-xl-start" style="font-weight: bold;">Nombre Asignatura</h5>
                         </div>
                         <div>
-                            <input type="email" style="border-radius: 10px; padding: 8px 2px;" name="Email" asp-for="Email">
+                            <input type="text" style="border-radius: 10px; padding: 8px 2px;" name="Asignatura" asp-for="Asignatura">
                         </div>
                     </div>
                     <div class="d-xl-flex flex-column justify-content-xl-center align-items-xl-start" style="padding: 22px; margin-bottom: -31px;">
                         <div>
-                            <h5 class="d-xl-flex justify-content-xl-start" style="font-weight: bold;" >Rol</h5>
+                            <h5 class="d-xl-flex justify-content-xl-start" style="font-weight: bold;" >Creditos</h5>
                         </div>
                         <div>
                             <div class="input-group mb-3" style="width: 100%;">
-                                <div class="input-group-text" style="height: 40px; border-top-left-radius: 10px; border-bottom-left-radius: 10px;">
-                                    <input  checked="checked" type="radio" class="form-check-input mt-0" aria-label="Checkbox for following text input" value=1 name="Rol" asp-for="Rol">
-                                </div>
-                                <div class="form-floating mt-0" style="height: 50px;">
-                                    <input type="text" id="theID" class="form-control" placeholder="Placeholder" style="width: 162px; height: 40px; border-top-right-radius: 10px; border-bottom-right-radius: 10px;" disabled=""><label class="form-label" for="theID" style="padding: .5rem .75rem;">Estudiante</label>
-                                </div>
+                                <select name="Creditos" id="credit"  class="input-group-text" style="height: 40px; border-top-left-radius: 10px; border-bottom-left-radius: 10px;" >
+                                   <option value=0>Credito 0</option>
+                                  <option value=1>Credito 1</option>
+                                  <option value=2>Credito 2</option>
+                                  <option value=3>Credito 3</option>
+                                  <option value=4>Credito 4</option>
+                                  <option value=5>Credito 5</option>
+                                </select>
                             </div>
-                        </div>
-                        <div>
-                            <div class="input-group mb-3" style="width: 100%;">
-                                <div class="input-group-text" style="height: 40px; border-top-left-radius: 10px; border-bottom-left-radius: 10px;">
-                                    <input type="radio" class="form-check-input mt-0" aria-label="Checkbox for following text input" value=2 name="Rol" asp-for="Rol">
-                                </div>
-                                <div class="form-floating mt-0" style="height: 50px;">
-                                    <input type="text" id="theID-1" class="form-control" placeholder="Placeholder" style="width: 162px; height: 40px; border-top-right-radius: 10px; border-bottom-right-radius: 10px;" disabled=""><label class="form-label" for="theID" style="padding: .5rem .75rem;">Docente</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="input-group mb-3" style="width: 100%;">
-                                <div class="input-group-text" style="height: 40px; border-top-left-radius: 10px; border-bottom-left-radius: 10px;">
-                                    <input type="radio" class="form-check-input mt-0" aria-label="Checkbox for following text input" value=3 name="Rol" asp-for="Rol">
-                                </div>
-                                <div class="form-floating mt-0" style="height: 50px;">
-                                    <input type="text" id="theID-2" class="form-control" placeholder="Placeholder" style="width: 162px; height: 40px; border-top-right-radius: 10px; border-bottom-right-radius: 10px;" disabled=""><label class="form-label" for="theID" style="padding: .5rem .75rem;">Administrador</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="d-lg-flex flex-column justify-content-lg-start" style="height: 417px;">
-                    <div class="d-xl-flex flex-column justify-content-xl-center align-items-xl-start" style="padding: 22px;">
-                        <div>
-                            <h5 class="d-xl-flex justify-content-xl-start" style="font-weight: bold;">Apellido</h5>
-                        </div>
-                        <div>
-                            <input type="text" style="border-radius: 10px; padding: 8px 2px;" name="Lastname" pattern="[a-zA-Z'-'\s]*" asp-for="LastName">
-                        </div>
-                    </div>
-                    <div class="d-xl-flex flex-column justify-content-xl-center align-items-xl-start" style="padding: 22px;">
-                        <div>
-                            <h5 class="d-xl-flex justify-content-xl-start" style="font-weight: bold;">Contraseña</h5>
-                        </div>
-                        <div>
-                            <input type="text" style="border-radius: 10px; padding: 8px 2px;" name="password" pattern="[a-zA-Z]{1-9}" asp-for="Password">
                         </div>
                     </div>
                 </div>
