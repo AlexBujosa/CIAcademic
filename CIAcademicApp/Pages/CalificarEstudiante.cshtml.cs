@@ -73,6 +73,12 @@ namespace CIAcademicApp.Pages
                 ViewData["StudentSection"] = StudentSection;
                 ViewData["StudentQualification"] = Qualification;
             }
+            else
+            {
+                ViewData["CourseSection"] = CourseSection;
+                ViewData["StudentSection"] = StudentSection;
+                ViewData["StudentQualification"] = StudentQualification;
+            }
         }
     }
 }

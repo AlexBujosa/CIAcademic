@@ -1,6 +1,8 @@
 ﻿@page
 @model CIAcademicApp.Pages.RetirarModel
+@using System.Data;
 @{
+    DataTable CoursesR = (DataTable)ViewData["CoursesR"];
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -77,30 +79,25 @@
     </div>
     <div class="container padding-container" style="background: #CBF3F0; padding-bottom: 41px;">
         <section class="flex-column justify-content-center align-items-center" style="background: white; padding: 20px; border-radius: 15px; width: auto; height: auto;">
-            <div class="d-flex d-sm-flex d-md-flex d-lg-flex d-xl-flex d-xxl-flex flex-column justify-content-center align-items-center flex-md-row background-div" style="background: #ffffff; font-family: Nunito, sans-serif; font-size: 27px; font-weight: bold; padding-bottom: 17px; width: 100%;">
-                <p class="d-flex flex-grow-1 justify-content-center align-items-center justify-content-sm-center justify-content-lg-center align-items-lg-center" style="font-family: Nunito, sans-serif; text-align: center; width: 100%; height: auto; font-size: 26px;">FMG564 - Matemáticas I</p>
-                <div class="d-flex d-md-flex justify-content-center" style="background: rgba(255, 159, 28, 0); width: 100%; height: auto;">
-                    <button class="btn btn-primary btn-project" type="button" style="background: #FF9F1C; font-family: Nunito, sans-serif; padding: 8px 40px; color: rgb(0, 0, 0); font-size: 20px; margin-left: 0px; height: auto; border-radius: 14px;">Retirar</button>
-                </div>
-            </div>
-            <div class="d-flex d-sm-flex d-md-flex d-lg-flex d-xl-flex d-xxl-flex flex-column justify-content-center align-items-center flex-md-row background-div" style="background: #ffffff; font-family: Nunito, sans-serif; font-size: 27px; font-weight: bold; padding-bottom: 17px; width: 100%;">
-                <p class="d-flex flex-grow-1 justify-content-center align-items-center justify-content-sm-center justify-content-lg-center align-items-lg-center" style="font-family: Nunito, sans-serif; text-align: center; width: 100%; height: auto; font-size: 26px;">IDS452 - Programación II</p>
-                <div class="d-flex d-md-flex justify-content-center" style="background: rgba(255, 159, 28, 0); width: 100%; height: auto;">
-                    <button class="btn btn-primary btn-project" type="button" style="background: #FF9F1C; font-family: Nunito, sans-serif; padding: 8px 40px; color: rgb(0, 0, 0); font-size: 20px; margin-left: 0px; height: auto; border-radius: 14px;">Retirar</button>
-                </div>
-            </div>
-            <div class="d-flex d-sm-flex d-md-flex d-lg-flex d-xl-flex d-xxl-flex flex-column justify-content-center align-items-center flex-md-row background-div" style="background: #ffffff; font-family: Nunito, sans-serif; font-size: 27px; font-weight: bold; padding-bottom: 17px; width: 100%;">
-                <p class="d-flex flex-grow-1 justify-content-center align-items-center justify-content-sm-center justify-content-lg-center align-items-lg-center" style="font-family: Nunito, sans-serif; text-align: center; width: 100%; height: auto; font-size: 26px;">Asignatura 2</p>
-                <div class="d-flex d-md-flex justify-content-center" style="background: rgba(255, 159, 28, 0); width: 100%; height: auto;">
-                    <button class="btn btn-primary btn-project" type="button" style="background: #FF9F1C; font-family: Nunito, sans-serif; padding: 8px 40px; color: rgb(0, 0, 0); font-size: 20px; margin-left: 0px; height: auto; border-radius: 14px;">Retirar</button>
-                </div>
-            </div>
-            <div class="d-flex d-sm-flex d-md-flex d-lg-flex d-xl-flex d-xxl-flex flex-column justify-content-center align-items-center flex-md-row background-div" style="background: #ffffff; font-family: Nunito, sans-serif; font-size: 27px; font-weight: bold; padding-bottom: 17px; width: 100%;">
-                <p class="d-flex flex-grow-1 justify-content-center align-items-center justify-content-sm-center justify-content-lg-center align-items-lg-center" style="font-family: Nunito, sans-serif; text-align: center; width: 100%; height: auto; font-size: 26px;">Asignatura 2</p>
-                <div class="d-flex d-md-flex justify-content-center" style="background: rgba(255, 159, 28, 0); width: 100%; height: auto;">
-                    <button class="btn btn-primary btn-project" type="button" style="background: #FF9F1C; font-family: Nunito, sans-serif; padding: 8px 40px; color: rgb(0, 0, 0); font-size: 20px; margin-left: 0px; height: auto; border-radius: 14px;">Retirar</button>
-                </div>
-            </div>
+                @for (int i = 0; i<CoursesR.Rows.Count; i++)
+                {
+                      <div class="d-flex d-sm-flex d-md-flex d-lg-flex d-xl-flex d-xxl-flex flex-column justify-content-center align-items-center flex-md-row background-div" style="background: #ffffff; font-family: Nunito, sans-serif; font-size: 27px; font-weight: bold; padding-bottom: 17px; width: 100%;">
+                        <p class="d-flex flex-grow-1 justify-content-center align-items-center justify-content-sm-center justify-content-lg-center align-items-lg-center" style="font-family: Nunito, sans-serif; text-align: center; width: 100%; height: auto; font-size: 26px;">@CoursesR.Rows[i][2] - @CoursesR.Rows[i][1]</p>
+                        <form  method="post" class="d-flex d-md-flex justify-content-center" style="background: rgba(255, 159, 28, 0); width: 100%; height: auto;">
+                            <input type="hidden" name="Course" value="@CoursesR.Rows[i][4]">
+                            <input type="hidden" name="Section" value="@CoursesR.Rows[i][3]">
+                            <button class="btn btn-primary btn-project" type="submit" style="background: #FF9F1C; font-family: Nunito, sans-serif; padding: 8px 40px; color: rgb(0, 0, 0); font-size: 20px; margin-left: 0px; height: auto; border-radius: 14px;">Retirar</button>
+                        </form>
+                    </div>
+                }
+                @if(CoursesR.Rows.Count == 0)
+                {
+                    <div class="d-flex d-sm-flex d-md-flex d-lg-flex d-xl-flex d-xxl-flex flex-column justify-content-center align-items-center flex-md-row background-div" style="background: #ffffff; font-family: Nunito, sans-serif; font-size: 27px; font-weight: bold; padding-bottom: 17px; width: 100%;">
+                        <p class="d-flex flex-grow-1 justify-content-center align-items-center justify-content-sm-center justify-content-lg-center align-items-lg-center" style="font-family: Nunito, sans-serif; text-align: center; width: 100%; height: auto; font-size: 26px;">N/A Asignatura para retirar</p>
+                        
+                    </div>
+                }
+
         </section>
     </div>
 </section>

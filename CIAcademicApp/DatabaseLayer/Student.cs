@@ -115,5 +115,26 @@ namespace CIAcademicApp.DatabaseLayer
             con.CloseConnection();
             return dataSet;
         }
+        public DataSet PPGetwithdrawableCourses(int ID_Student)
+        {
+            DataSet dataSet = new DataSet();
+            con.OpenConnection();
+            sqlCommand = new SqlCommand();
+            sqlCommand.CommandText = "ppGetwithdrawableCourses";
+            sqlCommand.Parameters.AddWithValue("@ID_Student", ID_Student);
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Connection = con.sqlConnection;
+            var adapter = new SqlDataAdapter(sqlCommand);
+            try
+            {
+                adapter.Fill(dataSet);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            con.CloseConnection();
+            return dataSet;
+        }
     }
 }

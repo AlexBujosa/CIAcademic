@@ -45,5 +45,11 @@ namespace CIAcademicApp.BusinessLayer
             int resp= qualify.PPQualifyR(ID_Student, ID_Section, ID_Course);
             return resp;
         }
+        public DataSet ConseguirAsignaturasRetirables(int ID_Student)
+        {
+            DatabaseLayer.Student student = new DatabaseLayer.Student();
+            DataSet set = student.PPGetwithdrawableCourses(ID_Student);
+            return set;
+        }
     }
 }
