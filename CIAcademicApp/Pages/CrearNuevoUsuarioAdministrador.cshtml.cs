@@ -38,7 +38,8 @@ namespace CIAcademicApp.Pages
         }
         public async void OnPost()
         {
-            if (!ModelState.IsValid)
+            Validation val = new Validation();
+            if (!ModelState.IsValid || !val.ValidatePassword(Password) || !val.ValidateEmail(Email) || !val.ValidateNameOrLastName(Name) || !val.ValidateNameOrLastName(LastName))
             {
                 Message = "Error";
                 ViewData["Message"] = Message;

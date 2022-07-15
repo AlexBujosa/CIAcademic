@@ -37,6 +37,11 @@ namespace CIAcademicApp.Pages
             int result = 0;
             bool valid = false;
             User user = new User();
+            Validation val = new Validation();
+            if (!ModelState.IsValid || !val.ValidatePassword(Password) || !val.ValidateId(ID_User))
+            {
+                return;
+            }
             DataSet dataSet = user.IniciarSesion(ID_User, Password);
             try
             {
