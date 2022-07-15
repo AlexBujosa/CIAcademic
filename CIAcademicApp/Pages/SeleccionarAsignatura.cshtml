@@ -117,19 +117,20 @@
                         </div>
 
                     }
-                    @if(i == iteracion * 5 && iteracion < Cantidad)
-                    {
-                       <form  data-aos="fade-left" data-aos-duration="1850"  method="post" align="right">
+
+                }
+                @if(iteracion < Cantidad)
+                {
+                       <form  method="post" align="right">
                             <input type="hidden" value="@iteracion" name="iter"/>
                             <input type="hidden" name="search" value="@Search" />
                             <input type="submit" class="btn btn-primary btn-project" asp-page-handler="Change" value="Siguiente" style="background: #CBF3F0; border-radius: 26px; padding-bottom: 0px; color:black"/>
                         </form>
-                    }
                 }
                 @if(iteracion > 1)
                 {
-                    <br />
-                     <form  data-aos="fade-right" data-aos-duration="1850"  method="post" align="right">
+                    
+                     <form   method="post" align="right">
                            <input type="hidden" value="@iteracion" name="iter"/>
                            <input type="hidden" name="search" value="@Search" />
                            <input type="submit" class="btn btn-primary btn-project" asp-page-handler="ChangeMinus" value="Anterior" style="background: #CBF3F0; border-radius: 26px; padding-bottom: 0px; color:black"/>
